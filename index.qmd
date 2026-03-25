@@ -1,3 +1,45 @@
+## Getting started
+
+The first thing we need to do is set up our working files on your computer.
+
+### 1. Download and unzip the course folder
+
+Download the provided course folder to your computer. This folder contains all the files and directories you will need for the exercises.
+
+Once downloaded:
+
+-   Locate the file (usually in your Downloads folder)
+
+-   Right-click and select **Extract All** (Windows) or double-click to unzip (Mac)
+
+-   Choose a suitable location (we recommend your Desktop for easy access)
+
+After extracting, you should see a folder containing several subfolders and files.
+
+### 2. Open your command line interface
+
+Next, open the command line (also known as the terminal or shell) and navigate to your extracted folder.
+
+**Windows users:**
+
+-    Open the folder in File Explorer
+
+-   Right-click inside the folder
+
+-   Select **Git Bash Here** (or open Command Prompt/PowerShell and navigate using `cd`)
+
+**Mac users:**
+
+-    Open Terminal
+
+-   Type `cd` (with a space after it)
+
+-   Drag and drop the extracted folder into the Terminal window
+
+-   Press Enter
+
+You should now be working inside your course directory.
+
 ## What is a file system?
 
 A file system is exactly what it sounds like - a way for your computer to store your data in an organised way using **files**.
@@ -143,19 +185,19 @@ In this lesson you will learn how to use the command line interface to move arou
 
 ## How to access the shell
 
-We have already accessed the shell in the previous episode, when we logged onto the Cloud instance.
+To recap how to access your shell:
 
-We will spend most of our time learning about the basics of the shell by manipulating some experimental data. Some of the data we're going to be working with is quite large, and we're also going to be using several bioinformatic packages in later lessons to work with this data. To avoid having to spend time downloading the data and downloading and installing all of the software, we're going to continue using our Cloud instance.
+-   **Windows users**:
 
-As a reminder, we log in by launching Git Bash or Terminal from the `cloudspan` folder we made in today's first episode, and then using the `ssh` command.
+    -   Right click anywhere inside the blank space of the file manager, then select **Git Bash Here**. A new window will open - this is your command line interface, also known as the shell or the terminal. It will automatically open with your `cloudspan` directory as the working directory.
 
-``` {.bash filename="Code"}
-ssh -i login-key-instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk
-```
+-   **Mac users**, you have two options:
+
+    -   EITHER: Open **Terminal** in one window and type `cd` followed by a space. Do not press enter! Now open **Finder** in another window. Drag and drop the `cloudspan` folder from the Finder to the Terminal. You should see the file path leading to your `cloudspan` folder appear. Now press enter to navigate to the folder.
+
+    -   OR: Open **Terminal** and type `cd` followed by the absolute path that leads to your `cloudspan` folder. Press enter.
 
 ## Navigating your file system
-
-Now we have logged into our Cloud instance, we have access to a new file directory. This instance has been set up with some existing files and directories for you, and we will also be adding some new ones later in the course.
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 
@@ -461,69 +503,9 @@ In most commands the flags can be combined together in no particular order to ob
 ls -Fa ls -laF
 ```
 
-## Summary
-
-We now know how to move around our file system using the command line. This gives us an advantage over interacting with the file system through a GUI as it allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using bioinformatic software that is only available in command line versions.
-
-In the next few episodes, we'll be expanding on these skills and seeing how using the command line shell enables us to make our workflow more efficient and reproducible.
-
-For now, log off using the `exit` command: This will close the connection, and your terminal will go back to showing your local computer prompt, for example:
-
-``` {.bash filename="Code"}
-exit
-```
-
-This will close the connection, and your terminal will go back to showing your local computer prompt, for example:
-
-``` {.default filename="Output"}
-logout Connection to instanceNNN.cloud-span.aws.york.ac.uk closed. username@machineid $
-```
-
-## Getting started
-
-The first thing we need to do is log in to our cloud instance.
-
-##### **1. Open the *cloudspan* folder you created for the course**
-
-Open your file manager and navigate to the `cloudspan` folder (hint: we recommended you make the folder in your *Desktop* directory - but you might have made it somewhere else). If you cannot find the folder, you can remind yourself where it is stored by looking at the absolute path you wrote down in the previous episode.
-
-The folder should contain the login key file we downloaded in the previous episode and nothing else.
-
-##### **2. Right-click and open your machine's command line interface**
-
-Now we can open the command line.
-
--   **Windows users**:
-
-    -   Right click anywhere inside the blank space of the file manager, then select **Git Bash Here**. A new window will open - this is your command line interface, also known as the shell or the terminal. It will automatically open with your `cloudspan` directory as the working directory.
-
--   **Mac users**, you have two options:
-
-    -   EITHER: Open **Terminal** in one window and type `cd` followed by a space. Do not press enter! Now open **Finder** in another window. Drag and drop the `cloudspan` folder from the Finder to the Terminal. You should see the file path leading to your `cloudspan` folder appear. Now press enter to navigate to the folder.
-
-    -   OR: Open **Terminal** and type `cd` followed by the absolute path that leads to your `cloudspan` folder. Press enter.
-
-##### **3. Login into your instance**
-
-``` {.bash filename="Code"}
-ssh -i login-key-instanceNNN.pem csuser@instanceNNN.cloud-span.aws.york.ac.uk
-```
-
-*Be sure to replace NNN with your own number, twice.*
-
-## Reminder: our file structure
-
-Before we start, here's a reminder of what our file structure looks like as a hierarchy tree:
-
-<!-- ![A file hierarchy tree](../fig/blank_instance_file_tree_with_hidden.png){:width="400px"} -->
-
-![A file hierarchy tree.](/images/blank_instance_file_tree_with_hidden.png){alt="A file hierarchy tree." width="400px" fig-alt="A file hierarchy tree."}
-
-Keep this in mind as we continue to navigate the file system, and don't hesitate to refer back to it if needed.
-
 ## Examining the contents of other directories
 
-In the previous session we learned how to use `pwd` to find our current location within our file system. We also learned how to use `cd` to change locations and `ls` to list the contents of a directory.
+In the above section we learned how to use `pwd` to find our current location within our file system. We also learned how to use `cd` to change locations and `ls` to list the contents of a directory.
 
 By default, the `ls` commands lists the contents of the working directory (i.e. the directory you are in). You can always find the directory you are in using the `pwd` command. However, you can also give `ls` the names of other directories to view. Navigate to your home directory if you are not already there.
 
