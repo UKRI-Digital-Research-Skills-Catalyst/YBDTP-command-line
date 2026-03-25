@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to command line</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/logo_no_text_transparent.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a8c865f53e5d884e290faae9230119e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/logo_transparent_background.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Introduction to command line</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
+  <ul>
+  <li><a href="#download-and-unzip-the-course-folder" id="toc-download-and-unzip-the-course-folder" class="nav-link" data-scroll-target="#download-and-unzip-the-course-folder">1. Download and unzip the course folder</a></li>
+  <li><a href="#open-your-command-line-interface" id="toc-open-your-command-line-interface" class="nav-link" data-scroll-target="#open-your-command-line-interface">2. Open your command line interface</a></li>
+  </ul></li>
+  <li><a href="#what-is-a-file-system" id="toc-what-is-a-file-system" class="nav-link" data-scroll-target="#what-is-a-file-system">What is a file system?</a></li>
+  <li><a href="#file-paths" id="toc-file-paths" class="nav-link" data-scroll-target="#file-paths">File paths</a></li>
+  <li><a href="#root-and-home-directories" id="toc-root-and-home-directories" class="nav-link" data-scroll-target="#root-and-home-directories">Root and home directories</a></li>
+  <li><a href="#absolute-vs-relative-paths" id="toc-absolute-vs-relative-paths" class="nav-link" data-scroll-target="#absolute-vs-relative-paths">Absolute vs relative paths</a></li>
+  <li><a href="#create-a-folder-for-the-course" id="toc-create-a-folder-for-the-course" class="nav-link" data-scroll-target="#create-a-folder-for-the-course">Create a folder for the course</a></li>
+  <li><a href="#what-is-a-shell-and-why-should-i-care" id="toc-what-is-a-shell-and-why-should-i-care" class="nav-link" data-scroll-target="#what-is-a-shell-and-why-should-i-care">What is a shell and why should I care?</a></li>
+  <li><a href="#how-to-access-the-shell" id="toc-how-to-access-the-shell" class="nav-link" data-scroll-target="#how-to-access-the-shell">How to access the shell</a></li>
+  <li><a href="#navigating-your-file-system" id="toc-navigating-your-file-system" class="nav-link" data-scroll-target="#navigating-your-file-system">Navigating your file system</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a>
+  <ul>
+  <li><a href="#shortcut-tab-completion" id="toc-shortcut-tab-completion" class="nav-link" data-scroll-target="#shortcut-tab-completion">Shortcut: Tab Completion</a></li>
+  </ul></li>
+  <li><a href="#moving-around-the-file-system" id="toc-moving-around-the-file-system" class="nav-link" data-scroll-target="#moving-around-the-file-system">Moving around the file system</a></li>
+  <li><a href="#finding-hidden-directories" id="toc-finding-hidden-directories" class="nav-link" data-scroll-target="#finding-hidden-directories">Finding hidden directories</a></li>
+  <li><a href="#examining-the-contents-of-other-directories" id="toc-examining-the-contents-of-other-directories" class="nav-link" data-scroll-target="#examining-the-contents-of-other-directories">Examining the contents of other directories</a></li>
+  <li><a href="#navigating-practice" id="toc-navigating-practice" class="nav-link" data-scroll-target="#navigating-practice">Navigating practice</a></li>
+  <li><a href="#full-vs.-relative-paths" id="toc-full-vs.-relative-paths" class="nav-link" data-scroll-target="#full-vs.-relative-paths">Full vs.&nbsp;Relative Paths</a></li>
+  <li><a href="#relative-path-resolution" id="toc-relative-path-resolution" class="nav-link" data-scroll-target="#relative-path-resolution">Relative path resolution</a>
+  <ul>
+  <li><a href="#navigational-shortcuts" id="toc-navigational-shortcuts" class="nav-link" data-scroll-target="#navigational-shortcuts">Navigational Shortcuts</a></li>
+  </ul></li>
+  <li><a href="#working-with-files" id="toc-working-with-files" class="nav-link" data-scroll-target="#working-with-files">Working with Files</a>
+  <ul>
+  <li><a href="#our-data-set-fastq-files" id="toc-our-data-set-fastq-files" class="nav-link" data-scroll-target="#our-data-set-fastq-files">Our data set: FASTQ files</a></li>
+  <li><a href="#wildcards" id="toc-wildcards" class="nav-link" data-scroll-target="#wildcards">Wildcards</a></li>
+  </ul></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise</a></li>
+  <li><a href="#command-history" id="toc-command-history" class="nav-link" data-scroll-target="#command-history">Command History</a></li>
+  <li><a href="#examining-files-the-less-program" id="toc-examining-files-the-less-program" class="nav-link" data-scroll-target="#examining-files-the-less-program">Examining Files — the <code>less</code> program</a></li>
+  <li><a href="#fastq-format" id="toc-fastq-format" class="nav-link" data-scroll-target="#fastq-format">FASTQ format</a></li>
+  <li><a href="#phred-score" id="toc-phred-score" class="nav-link" data-scroll-target="#phred-score">PHRED score</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise</a>
+  <ul>
+  <li><a href="#other-programs-to-look-into-files-cat-more-head-and-tail" id="toc-other-programs-to-look-into-files-cat-more-head-and-tail" class="nav-link" data-scroll-target="#other-programs-to-look-into-files-cat-more-head-and-tail">Other programs to look into files: <code>cat</code>, <code>more</code>, <code>head</code>, and <code>tail</code></a></li>
+  </ul></li>
+  <li><a href="#creating-moving-copying-and-removing-files" id="toc-creating-moving-copying-and-removing-files" class="nav-link" data-scroll-target="#creating-moving-copying-and-removing-files">Creating, moving, copying, and removing files</a>
+  <ul>
+  <li><a href="#copying-files" id="toc-copying-files" class="nav-link" data-scroll-target="#copying-files">Copying Files</a></li>
+  <li><a href="#creating-directories" id="toc-creating-directories" class="nav-link" data-scroll-target="#creating-directories">Creating Directories</a></li>
+  <li><a href="#moving-renaming-files-and-directories" id="toc-moving-renaming-files-and-directories" class="nav-link" data-scroll-target="#moving-renaming-files-and-directories">Moving / Renaming files and directories</a></li>
+  <li><a href="#removing-files-and-directories" id="toc-removing-files-and-directories" class="nav-link" data-scroll-target="#removing-files-and-directories">Removing files and directories</a></li>
+  </ul></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise</a></li>
+  <li><a href="#solution-7" id="toc-solution-7" class="nav-link" data-scroll-target="#solution-7">Solution</a></li>
+  <li><a href="#searching-files" id="toc-searching-files" class="nav-link" data-scroll-target="#searching-files">Searching files</a></li>
+  <li><a href="#nucleotide-abbreviations" id="toc-nucleotide-abbreviations" class="nav-link" data-scroll-target="#nucleotide-abbreviations">Nucleotide abbreviations</a></li>
+  <li><a href="#determining-quality" id="toc-determining-quality" class="nav-link" data-scroll-target="#determining-quality">Determining quality</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise</a></li>
+  <li><a href="#redirecting-output" id="toc-redirecting-output" class="nav-link" data-scroll-target="#redirecting-output">Redirecting output</a>
+  <ul>
+  <li><a href="#redirecting-output-to-a-file-the-command" id="toc-redirecting-output-to-a-file-the-command" class="nav-link" data-scroll-target="#redirecting-output-to-a-file-the-command">Redirecting output to a file — the <code>&gt;</code> command</a></li>
+  <li><a href="#counting-number-of-lines-in-files-the-wc-program" id="toc-counting-number-of-lines-in-files-the-wc-program" class="nav-link" data-scroll-target="#counting-number-of-lines-in-files-the-wc-program">Counting number of lines in files — the <code>wc</code> program</a></li>
+  </ul></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise</a>
+  <ul>
+  <li><a href="#the-command-redirects-and-overwrites" id="toc-the-command-redirects-and-overwrites" class="nav-link" data-scroll-target="#the-command-redirects-and-overwrites">The command <code>&gt;</code> redirects and overwrites</a></li>
+  <li><a href="#the-command-redirects-and-appends" id="toc-the-command-redirects-and-appends" class="nav-link" data-scroll-target="#the-command-redirects-and-appends">The command <code>&gt;&gt;</code> redirects and appends</a></li>
+  <li><a href="#redirecting-output-as-input-to-other-program-the-pipe-command" id="toc-redirecting-output-as-input-to-other-program-the-pipe-command" class="nav-link" data-scroll-target="#redirecting-output-as-input-to-other-program-the-pipe-command">Redirecting output as input to other program — the pipe <code>|</code> command</a></li>
+  </ul></li>
+  <li><a href="#custom-grep-control" id="toc-custom-grep-control" class="nav-link" data-scroll-target="#custom-grep-control">Custom <code>grep</code> control</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">25 March, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>The first thing we need to do is set up our working files on your computer.</p>
+<section id="download-and-unzip-the-course-folder" class="level3">
+<h3 class="anchored" data-anchor-id="download-and-unzip-the-course-folder">1. Download and unzip the course folder</h3>
+<p>Download the provided course folder to your computer. This folder contains all the files and directories you will need for the exercises.</p>
+<p>Once downloaded:</p>
+<ul>
+<li><p>Locate the file (usually in your Downloads folder)</p></li>
+<li><p>Right-click and select <strong>Extract All</strong> (Windows) or double-click to unzip (Mac)</p></li>
+<li><p>Choose a suitable location (we recommend your Desktop for easy access)</p></li>
+</ul>
+<p>After extracting, you should see a folder containing several subfolders and files.</p>
+</section>
+<section id="open-your-command-line-interface" class="level3">
+<h3 class="anchored" data-anchor-id="open-your-command-line-interface">2. Open your command line interface</h3>
+<p>Next, open the command line (also known as the terminal or shell) and navigate to your extracted folder.</p>
+<p><strong>Windows users:</strong></p>
+<ul>
+<li><p>Open the folder in File Explorer</p></li>
+<li><p>Right-click inside the folder</p></li>
+<li><p>Select <strong>Git Bash Here</strong> (or open Command Prompt/PowerShell and navigate using <code>cd</code>)</p></li>
+</ul>
+<p><strong>Mac users:</strong></p>
+<ul>
+<li><p>Open Terminal</p></li>
+<li><p>Type <code>cd</code> (with a space after it)</p></li>
+<li><p>Drag and drop the extracted folder into the Terminal window</p></li>
+<li><p>Press Enter</p></li>
+</ul>
+<p>You should now be working inside your course directory.</p>
+</section>
+</section>
+<section id="what-is-a-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-file-system">What is a file system?</h2>
+<p>A file system is exactly what it sounds like - a way for your computer to store your data in an organised way using <strong>files</strong>.</p>
+<p>You will definitely have come across <strong>files</strong> before. All the data stored on your computer is split into separate files, making it much easier to keep track of than if it was all in one big blob.</p>
+<p>There are lots of different file types; we can often find out something about what kind of data a file contains by looking at its <strong>filename extension</strong>. For example:</p>
+<ul>
+<li><p><strong>.txt</strong> tells us that the file contains text</p></li>
+<li><p><strong>.exe</strong> tells us that the file contains a program to be run</p></li>
+<li><p><strong>.html</strong> tells us that the file contains a webpage, and should be run inside a web browser</p></li>
+</ul>
+<p>We will come across various different file types during this course, some of which you may not have seen before. Do not worry. We will introduce them to you and explain how to use them when necessary.</p>
+<p>In a file system, files are organised into <strong>directories</strong>, which can also be called <strong>folders</strong>. Hopefully you will have used folders to organise your files before! Folders can contain sub-folders, which can contain their own sub-folders, and so on almost without limit.</p>
+<p>It is easiest to picture a file system, or part of it, as a tree that starts at a directory and branches out from there. This is called a <strong>hierarchical structure</strong>. The figure below shows an example of a hierarchical file structure that starts at the “<strong>home directory</strong>” of the user named <strong>user1</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/prenomics_file_hierarchy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="A file hierarchy containing 4 levels of folders and files."><img src=".\images/prenomics_file_hierarchy.png" class="img-fluid figure-img" alt="A file hierarchy containing 4 levels of folders and files." width="400"></a></p>
+<figcaption>A file hierarchy containing 4 levels of folders and files.</figcaption>
+</figure>
+</div>
+<p>The directory you are working inside is called your <strong>working directory</strong>. For example, if you were editing <code>doc2.txt</code> in the diagram above, your working directory would be the folder called <code>docs</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think about your own computer and how your files and directories are organised. Sketch a tree diagram like the one above for your file system.</p>
+<p>Hint: remind yourself of your file system’s layout using a file manager application such as:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>OS</th>
+<th>Icon</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>File Explorer (Windows)</td>
+<td><img src=".\images/icon-file-explorer-windows.png" class="img-fluid" width="50" alt="."></td>
+</tr>
+<tr class="even">
+<td>Finder (Mac)</td>
+<td><img src=".\images/icon-finder-mac.png" class="img-fluid" width="50" alt="."></td>
+</tr>
+</tbody>
+</table>
+<p>You probably already use these applications regularly to find, open and organise files.</p>
+</div>
+</div>
+<!-- >| File Explorer (Windows) | <img src="../fig/icon-file-explorer-windows.png" width="50px"> | -->
+<!-- | Finder (Mac) | <img src="../fig/icon-finder-mac.png" width="50px"> | -->
+</section>
+<section id="file-paths" class="level2">
+<h2 class="anchored" data-anchor-id="file-paths">File paths</h2>
+<p>It is not practical to draw out a tree diagram every time we want to refer to a file’s location. Instead, we can represent the information as a <strong>file path</strong>.</p>
+<p>In a <strong>file path</strong>, each directory is represented as a separate component separated by a character such as <code>\</code> or <code>/</code>. It is like writing an address or set of instructions for someone to follow if they want to find a specific file.</p>
+<p>For example, the path for the file called <code>doc3.txt</code> in the file system above looks like this: <code>user1/docs/data/doc3.txt</code> in a Unix or Linux computer.</p>
+<p>It is useful to note that Windows uses backslashes (<code>\</code>) to separate path components, while Unix, Linux and Mac use forward slashes (<code>/</code>).</p>
+</section>
+<section id="root-and-home-directories" class="level2">
+<h2 class="anchored" data-anchor-id="root-and-home-directories">Root and home directories</h2>
+<p>The <code>root</code> is the top-level of directories, which contains all other directories further down the tree.</p>
+<p>The root is represented as a <code>/</code> in Unix, Linux, and Mac operating systems.</p>
+<p>In the Windows operating system, the root directory is also known as a drive. In most cases, this will be the <code>C:\</code> drive.</p>
+<p>Even though the root directory is at the base of the file tree (or the top, depending on how you view it), it is not necessarily where our journey through the file system starts when we launch a new session on our computer. Instead our journey begins in the so called “home directory”.</p>
+<p>In Windows, Mac, Unix, and Linux, the “<strong>home directory</strong>” is a folder named with your username. Your personal files and directories can be found inside this folder. This is where your computer assumes you want to start when you open your file manager.</p>
+<p>On Windows and Mac your home directory is a directory inside directory called <strong>Users</strong> and named with your username. On Unix/Linux systems it is called <strong>home</strong>.</p>
+<p>From the root, the file system is:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/prenomics_file_hierarchy_root.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="A file hierarchy containing with root and home directories labelled."><img src=".\images/prenomics_file_hierarchy_root.png" class="img-fluid figure-img" alt="A file hierarchy containing with root and home directories labelled." width="375"></a></p>
+<figcaption>A file hierarchy containing with root and home directories labelled.</figcaption>
+</figure>
+</div>
+<!-- ![A file hierarchy containing with root and home directories labelled](../fig/prenomics_file_hierarchy_root.png){:width="450px"} -->
+<p>Your home directory is:</p>
+<ul>
+<li><code>C:\Users\user1\</code> on Windows</li>
+<li><code>/Users/user1/</code> on Mac</li>
+<li><code>/home/user1/</code> on Linux</li>
+</ul>
+<p>In Linux (the operating system we will use later in the course), a tilde symbol (<code>~</code>) is used as a shortcut for your home directory. So, for example, the path <code>~/docs/doc2.txt</code> is equivalent to <code>/home/user1/docs/doc2.txt</code>.</p>
+</section>
+<section id="absolute-vs-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="absolute-vs-relative-paths">Absolute vs relative paths</h2>
+<p>There are two ways of writing a file path - absolute paths and relative paths.</p>
+<p>An absolute path contains the complete list of directories needed to locate a file on your computer. This allows you to reach the file no matter where you are.</p>
+<p>A relative path describes the location of a file relative to your current working directory. For example, if you were already in the folder called <code>docs</code>, the relative path for <code>doc3.txt</code> would be <code>data/doc3.txt</code>. There is no need to give instructions to navigate a route you have already taken.</p>
+<p>If, however, you were in the folder called <code>docs</code> and you wanted to open one of the <code>.exe</code> files, you would need to give the path to <code>.exe</code> <em>relative</em> to the docs folder or give the absolute path.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the file system above to answer these questions.</p>
+<ol type="1">
+<li>What is the absolute path for the document <code>doc4.txt</code> on a Linux computer?</li>
+<li>Assuming you are currently in the directory called <code>docs</code>, what is the relative path for the document <code>doc2.txt</code>?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>The absolute path is <code>/home/user1/docs/data/doc4.txt</code> or <code>~/docs/data/doc4.txt</code>.</li>
+<li>The relative path is <code>doc2.txt</code> (as you are already in the directory where <code>doc2.txt</code> is stored).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-folder-for-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-folder-for-the-course">Create a folder for the course</h2>
+<p>To keep things tidy and easily accessible, we will create a folder (directory) to keep everything related to this course: the key you will need to log in, your notes, data etc.</p>
+<p>In theory you can make this folder anywhere in your file system but we recommend making it inside your Desktop folder, to make it easy to access.</p>
+<ol type="1">
+<li><p><strong>Create the folder</strong> <code>cloudspan</code> in your <em>Desktop</em>.</p>
+<p>Minimise all windows until you can see your desktop background. Right click and select <em>New</em>, then <em>Folder</em>. Name the folder <code>cloudspan</code>.</p>
+<p>You should see a folder icon appear on your desktop with the label <code>cloudspan</code>.</p>
+<p>Additionally, if you enter your file explorer application you should be able to click on the <em>Desktop</em> directory at the side and see the <code>cloudspan</code> folder.</p></li>
+<li><p><strong>Write down the absolute path</strong> to your <code>cloudspan</code> folder.</p>
+<p>Find out what the absolute path is using your file manager application. Right click on the folder, or in any blank space inside the folder, and then:</p>
+<ul>
+<li><strong>Windows users</strong>: select <em>Properties</em>, then look at the field called <em>Location</em>. Your path will be separated with backslashes (<code>\</code>) but you should write it down using forward slashes (<code>/</code>).</li>
+<li><strong>Mac Users</strong>: select <em>Get info</em>, then look at the field called <em>Where</em>. Your path should start with the word <code>Users/</code> - ignore anything that comes before this. Separate your path components using forward slashes (<code>/</code>).</li>
+</ul>
+<p>Now add the folder name (<code>/cloudspan</code>) to the end of this path. This is your absolute path. Once you have this written down, do not lose it! Now you can find your way back to the <code>cloudspan</code> folder whenever you need to, no matter where you are in your file structure.</p></li>
+</ol>
+</section>
+<section id="what-is-a-shell-and-why-should-i-care" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-shell-and-why-should-i-care">What is a shell and why should I care?</h2>
+<p>A <em>shell</em> is a computer program that has a command line where you type commands to do things on your computer rather than using menus and buttons on a Graphical User Interface (GUI).</p>
+<p>There are many reasons to learn how to use the shell/command line:</p>
+<ul>
+<li><strong>Software access</strong> - many bioinformatics tools can only be used through a command line interface, or have extra capabilities in the command line version that are not available in the GUI (this is true of most of the software used in this course).</li>
+<li><strong>Cloud access</strong> - bioinformatics tasks which require large amounts of computing power (like the ones we’ll do later in this course!) are best performed on remote computers or cloud computing platforms, which are accessed via a shell.</li>
+<li><strong>Automation</strong> - repetitive tasks (e.g.&nbsp;doing the same set of tasks on a large number of files) can be easily automated in the shell, saving you time and preventing human error.</li>
+<li><strong>Reproducibility</strong> - when using the shell your computer keeps a record of every step that you’ve carried out, which you can use to re-do your work when you need to.</li>
+</ul>
+<p>In this lesson you will learn how to use the command line interface to move around in your file system.</p>
+</section>
+<section id="how-to-access-the-shell" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-access-the-shell">How to access the shell</h2>
+<p>To recap how to access your shell:</p>
+<ul>
+<li><p><strong>Windows users</strong>:</p>
+<ul>
+<li>Right click anywhere inside the blank space of the file manager, then select <strong>Git Bash Here</strong>. A new window will open - this is your command line interface, also known as the shell or the terminal. It will automatically open with your <code>cloudspan</code> directory as the working directory.</li>
+</ul></li>
+<li><p><strong>Mac users</strong>, you have two options:</p>
+<ul>
+<li><p>EITHER: Open <strong>Terminal</strong> in one window and type <code>cd</code> followed by a space. Do not press enter! Now open <strong>Finder</strong> in another window. Drag and drop the <code>cloudspan</code> folder from the Finder to the Terminal. You should see the file path leading to your <code>cloudspan</code> folder appear. Now press enter to navigate to the folder.</p></li>
+<li><p>OR: Open <strong>Terminal</strong> and type <code>cd</code> followed by the absolute path that leads to your <code>cloudspan</code> folder. Press enter.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="navigating-your-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-your-file-system">Navigating your file system</h2>
+<p>Several commands are frequently used to create, inspect, rename, and delete files and directories.</p>
+<p>Let’s find out where we are by running a command called <code>pwd</code>(which stands for “print working directory”). At any moment, our <strong>current working directory</strong> is our current default directory, i.e., the directory that the computer assumes we want to run commands in,unless we explicitly specify something else. Here, the computer’s response is <code>/home/csuser</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>/home/csuser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This <code>csuser</code> directory is our <strong>home directory</strong> within our cloud system.</p>
+<p>Let’s look at how our file system is organised. We can see what files and subdirectories are in this directory by running <code>ls</code>, which stands for “listing”:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bin  cs_course  software</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>ls</code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We’ll be working within the <code>cs_course</code> subdirectory, and creating new subdirectories, throughout this workshop.</p>
+<p>The command to change locations in our file system is <code>cd</code>, followed by a directory name to change our working directory. <code>cd</code> stands for “change directory”.</p>
+<p>Let’s say we want to navigate to the <code>cs_course</code> directory we saw above. We can use the following command to get there:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cs_course</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at what is in this directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb6" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb7" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data   databases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can make the <code>ls</code> output easier to understand by using the <strong>flag</strong> <code>-F</code>, which tells <code>ls</code> to add a trailing <code>/</code> to the names of directories:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb8" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb9" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data/   databases/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Anything with a <code>/</code> after it is a directory. Things with a <code>*</code> after them are programs. If there are no decorations, it’s a file.</p>
+<p><code>ls</code> has lots of other options. To find out what they are, we can type:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb10" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>man</code> (short for manual) displays detailed documentation (also referred as man page or man file) for <code>bash</code> commands. It is a powerful resource to explore <code>bash</code> commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard’s down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.</p>
+</section>
+<section id="challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge</h2>
+<p>Use the <code>-l</code> option for the <code>ls</code> command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don’t see with the bare <code>ls</code> command?</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb11" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb12" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>total 12 drwxrwxr-x 4 csuser csuser 4096 Oct 22 09:04 data drwxrwxr-x 3 csuser csuser 4096 Oct  6 13:08 databases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The additional information given includes the name of the owner of the file, when the file was last modified, and whether the current user has permission to read and write to the file.</p>
+</div>
+</div>
+</div>
+<p>No one can possibly learn all of these arguments - that’s what the manual page is for! It does take practice to get used to using and understanding the information in the manual. Often, you don’t need to understand completely what it is saying to be able to guess what to try.</p>
+<p>Let’s go into the <code>data</code> directory and see what is in there using the <code>cd</code> and <code>ls</code> commands.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb13" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data ls <span class="at">-F</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb14" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>illumina_fastq/   nano_fastq/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This directory contains two subdirectories. We can tell they are directories and not files because of the trailing ‘/’. They contain all of the raw data we will need for the rest of the course.</p>
+<p>For now, let’s have a look in <code>illumina_fastq</code>. We can do this without changing directories using the <code>ls</code> command followed by the name of the directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb15" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb16" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq  ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This directory contains two files with <code>.fastq</code> extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.</p>
+<p>Let’s also have a look in the <code>nano_fastq</code> directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb17" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> nano_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb18" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ERR5000342_sub12.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Learning to navigate a new file directory can be confusing at first. To help, here is a tree diagram showing what we have explored so far.</p>
+<!-- ![A file hierarchy tree](../fig/blank_instance_file_tree.png){:width="400px"} -->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/blank_instance_file_tree.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="A file hierarchy tree."><img src=".\images/blank_instance_file_tree.png" class="img-fluid figure-img" alt="A file hierarchy tree." width="350"></a></p>
+<figcaption>A file hierarchy tree.</figcaption>
+</figure>
+</div>
+<p>First we moved from our home directory at <code>csuser</code> into the <code>cs_course</code> directory, which is one level down. From there we opened up the <code>data</code> directory, which contains subdirectories - <code>illumina_fastq</code> and <code>nano_fastq</code>. We had a peek inside both of these directories and found that <code>illumina_fastq</code> contained two files, while <code>nano_fastq</code> contained one.</p>
+<section id="shortcut-tab-completion" class="level3">
+<h3 class="anchored" data-anchor-id="shortcut-tab-completion">Shortcut: Tab Completion</h3>
+<p>It is very easy to make mistakes typing our filenames and commands. Thankfully, “tab completion” can help us! When you start typing out the name of a directory or file, then hit the <kbd>tab</kbd> key, the shell will try to fill in the rest of the directory or file name.</p>
+<p>First of all, typing <code>cd</code> after the prompt and pressing enter will always take you back to your home directory. Let’s do this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb19" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>then type:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb20" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and press <kbd>tab</kbd>.</p>
+<p>The shell will fill in the rest of the directory name for <code>cs_course</code>. Press enter to execute the command and move directories.</p>
+<p>Now change directories again to <code>data</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb21" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And again into <code>illumina_fastq</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb22" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you’ve typed enough characters to provide a unique identifier for the file or directory you are trying to access.</p>
+<p>For example, if we now try to list the files in <code>illumina_fastq</code> with names starting with <code>ERR</code> by using tab complete:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb23" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ERR<span class="op">&lt;</span>tab<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The shell auto-completes your command to <code>ERR4998593_</code>, because all file names in the directory begin with this prefix. When you hit <kbd>tab</kbd>again, the shell will list the possible choices.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb24" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq  ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Tab completion can also fill in the names of programs, which can be useful if you remember the beginning of a program name.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb25" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pw</span><span class="op">&lt;</span>tab<span class="op">&gt;&lt;</span>tab<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb26" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pwck      pwconv    pwd       pwdx      pwunconv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Displays the name of every program that starts with <code>pw</code>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You might find it useful to keep a note of the commands you learn in this course, so you can easily remember them in future. This will be faster than scrolling through the course each time you forget a command. While using your Cloud-SPAN AWS instance you can also type <code>csguide</code> into the command prompt and hit enter for a text-based guide to the command line, including frequently used commands.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="moving-around-the-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="moving-around-the-file-system">Moving around the file system</h2>
+<p>Now we’re going to learn some additional commands for moving around within our file system.</p>
+<p>Use the commands we’ve learned so far to navigate to the <code>illumina_fastq</code> directory from our home:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb27" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cd cs_course cd data cd illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What if we want to move back up and out of this directory and to our top level directory? Can we type <code>cd data</code>? Try it and see what happens.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb28" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb29" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>-bash: cd: shell_data: No such file or directory</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Your computer looked for a directory or file called <code>data</code> within the directory you were already in. It didn’t know you wanted to look at a directory level above the one you were located in.</p>
+<p>We have a special command to tell the computer to move us back or up one directory level.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb30" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can use <code>pwd</code> to make sure that we are in the directory we intended to navigate to, and <code>ls</code> to check that the contents of the directory are correct.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb31" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">pwd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb32" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>/home/csuser/cs_course/data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb33" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb34" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>illumina_fastq  nano_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>From this output, we can see that <code>..</code> did indeed take us back one level in our file system, to <code>data</code>.</p>
+<p>You can chain these together like so:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb35" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ../../</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb36" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>bin  cs_course  software </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This prints the contents of the folder called <code>csuser</code> (our home folder).</p>
+</section>
+<section id="finding-hidden-directories" class="level2">
+<h2 class="anchored" data-anchor-id="finding-hidden-directories">Finding hidden directories</h2>
+<p>There is a hidden directory inside the <code>cs_course</code> directory. Explore the options for <code>ls</code> in the man page to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in the hidden directory.</p>
+<p>Hint 1: hidden files and folders in Unix start with <code>.</code>, for example <code>.my_hidden_directory</code></p>
+<p>Hint 2: <code>cs_course</code> is one level above <code>data</code>, our current working directory.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>First use the <code>man</code> command to look at the options for <code>ls</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb37" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>-a</code> option is short for <code>all</code> and says that it causes <code>ls</code> to “not ignore entries starting with .” This is the option we want.</p>
+<p>We can use <code>..</code> to view the contents of the directory above our current working directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb38" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span> ..</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb39" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>.  ..   data   databases   .hidden</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The name of the hidden directory is <code>.hidden</code>. We can navigate to that directory using <code>cd</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb40" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. cd .hidden</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And then list the contents of the directory using <code>ls</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb41" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb42" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>youfoundit.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The name of the text file is <code>youfoundit.txt</code>.</p>
+</div>
+</div>
+</div>
+<p>In most commands the flags can be combined together in no particular order to obtain the desired results/output.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb43" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-Fa</span> ls <span class="at">-laF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="examining-the-contents-of-other-directories" class="level2">
+<h2 class="anchored" data-anchor-id="examining-the-contents-of-other-directories">Examining the contents of other directories</h2>
+<p>In the above section we learned how to use <code>pwd</code> to find our current location within our file system. We also learned how to use <code>cd</code> to change locations and <code>ls</code> to list the contents of a directory.</p>
+<p>By default, the <code>ls</code> commands lists the contents of the working directory (i.e.&nbsp;the directory you are in). You can always find the directory you are in using the <code>pwd</code> command. However, you can also give <code>ls</code> the names of other directories to view. Navigate to your home directory if you are not already there.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb44" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then enter the command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb45" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> cs_course</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb46" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>data   databases</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will list the contents of the <code>cs_course</code> directory without you needing to navigate there.</p>
+<p>The <code>cd</code> command works in a similar way.</p>
+<p>Try entering:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb47" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cd cs_course/data/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will take you to the <code>data</code> directory without having to go through the intermediate <code>cs_course</code> directory.</p>
+</section>
+<section id="navigating-practice" class="level2">
+<h2 class="anchored" data-anchor-id="navigating-practice">Navigating practice</h2>
+<p>Navigate to your home directory. From there, list the contents of the <code>illumina_fastq</code> directory.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb48" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ls cs_course/data/illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb49" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq  ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="full-vs.-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="full-vs.-relative-paths">Full vs.&nbsp;Relative Paths</h2>
+<p>The <code>cd</code> command takes an argument which is a directory name. Directories can be specified using either a <em>relative</em> path or a full <em>absolute</em> path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the <code>pwd</code> command.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb50" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span>   pwd  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will see:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb51" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>/home/csuser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is the full name of your home directory. This tells you that you are in a directory called <code>csuser</code>, which sits inside a directory called <code>home</code> which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called <code>/</code> which is usually referred to as the <em>root directory</em>. So, to summarize: <code>csuser</code> is a directory in <code>home</code> which is a directory in <code>/</code>. More on <code>root</code> and <code>home</code> in the next section.</p>
+<p>Now enter the following command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb52" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/csuser/cs_course/.hidden</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This jumps forward multiple levels to the <code>.hidden</code> directory. Now go back to the home directory.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb53" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also navigate to the <code>.hidden</code> directory using:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb54" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cs_course/.hidden</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These two commands have the same effect - they both take us to the <code>.hidden</code> directory. The first uses the absolute path, giving the full address from the root directory <code>/</code>. The second uses a relative path, giving only the address from the working directory. A absolute (full) path always starts with a <code>/</code>. A relative path does not.</p>
+<p>You can usually use either a full path or a relative path depending on what is most convenient. If you want to reach a directory further down the same branch as your current working directory, it’s easiest to use the relative path since it involves less typing. If you’re trying to get to a directory in a different branch, it might be more convenient to use the full path instead of navigating “backwards” and then forwards.</p>
+<p>Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them. We will be using the same directory structure for this whole course so navigating it should get easier as you progress.</p>
+</section>
+<section id="relative-path-resolution" class="level2">
+<h2 class="anchored" data-anchor-id="relative-path-resolution">Relative path resolution</h2>
+<p>Using the file system diagram below, if <code>pwd</code> displays <code>/home/csuser/cs_course/data/illumina_fastq</code>, what will <code>ls ../nano_fastq</code> display?</p>
+<p>Can you explain why?</p>
+<!-- ![Blank instance file tree.](../fig/blank_instance_file_tree_with_hidden.png){:width="300px"} -->
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/blank_instance_file_tree_with_hidden.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Instance file tree."><img src=".\images/blank_instance_file_tree_with_hidden.png" class="img-fluid figure-img" alt="Blank instance file tree." width="400"></a></p>
+<figcaption>Instance file tree.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb55" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>ERR5000342_sub12.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The command <code>ls ..</code> moves us up a folder level before we list the contents of <code>nano_fastq</code>.</p>
+</div>
+</div>
+</div>
+<section id="navigational-shortcuts" class="level3">
+<h3 class="anchored" data-anchor-id="navigational-shortcuts">Navigational Shortcuts</h3>
+<p>The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (<code>/</code>) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in <code>root</code> directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.</p>
+<p>Dealing with your home directory is very common. The tilde character, <code>~</code>, is a shortcut for your home directory. In our case, the <code>root</code> directory is <strong>two</strong> levels above our <code>home</code> directory, so <code>cd</code> or <code>cd ~</code> will take you to<code>/home/csuser</code> and <code>cd /</code> will take you to <code>/</code>.</p>
+<p>Navigate to the <code>illumina_fastq</code> directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb56" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> cd cs_course/data/illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then enter the command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb57" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb58" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>bin  cs_course software</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This prints the contents of your home directory, without you needing to type the full path.</p>
+<p>The commands <code>cd</code>, and <code>cd ~</code> are very useful for quickly navigating back to your home directory. We will be using the <code>~</code> character in later lessons to specify our home directory.</p>
+</section>
+</section>
+<section id="working-with-files" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-files">Working with Files</h2>
+<section id="our-data-set-fastq-files" class="level3">
+<h3 class="anchored" data-anchor-id="our-data-set-fastq-files">Our data set: FASTQ files</h3>
+<p>Now that we know how to navigate around our directory structure, let’s start working with our sequencing files. We are looking at the results from a short-read sequencing experiment, which are stored in our <code>illumina_fastq</code> directory.</p>
+</section>
+<section id="wildcards" class="level3">
+<h3 class="anchored" data-anchor-id="wildcards">Wildcards</h3>
+<p>Navigate to your <code>illumina_fastq</code> directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb59" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cs_course/data/illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We are interested in looking at the fastq files in this directory. We can list all files with the .fastq extension using the command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb60" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb61" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq  ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>*</code> character is a special type of character called a wildcard, which can be used to represent any number of any type of character. Thus, <code>*.fastq</code> matches every file that ends with <code>.fastq</code>.</p>
+<p>This command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb62" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> ../../ ls <span class="pp">*</span>_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb63" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>lists only the file that ends with <code>_2.fastq</code>.</p>
+<p>This command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb64" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> /usr/bin/<span class="pp">*</span>.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb65" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>/usr/bin/amuFormat.sh  /usr/bin/gettext.sh  /usr/bin/gvmap.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Lists every file in <code>/usr/bin</code> that ends in the characters <code>.sh</code>. Note that the output displays <strong>full</strong> paths to files, since each result starts with <code>/</code>.</p>
+</section>
+</section>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise</h2>
+<p>What command would you use for each of the following tasks? Start from your current directory using a single<code>ls</code>command for each:</p>
+<ol type="1">
+<li>List all of the files in <code>/usr/bin</code> that start with the letter ‘c’.</li>
+<li>List all of the files in <code>/usr/bin</code> that contain the letter ‘a’.</li>
+<li>List all of the files in <code>/usr/bin</code> that end with the letter ‘o’.</li>
+<li>List all of the files in <code>/usr/bin</code> that contain the letter ‘a’ or the letter ‘c’.</li>
+</ol>
+<p>Bonus: What would the output look like if a wildcard could <em>not</em> be matched? Try listing all files that start with ‘missing’.</p>
+<p>Hint: Question 4 requires a Unix wildcard that we haven’t talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>ls /usr/bin/c*</code></li>
+<li><code>ls /usr/bin/*a*</code></li>
+<li><code>ls /usr/bin/*o</code></li>
+<li><code>ls /usr/bin/*[ac]*</code></li>
+</ol>
+<p>Bonus: <code>ls: cannot access 'missing*': No such file or directory</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="command-history" class="level2">
+<h2 class="anchored" data-anchor-id="command-history">Command History</h2>
+<p>If you want to repeat a command that you’ve run recently, you can access previous commands using the up arrow on your keyboard to go back to the most recent command. Likewise, the down arrow takes you forward in the command history.</p>
+<p>You can also review your recent commands with the <code>history</code> command, by entering:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb66" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>to see a numbered list of recent commands. You can reuse one of these commands directly by referring to the number of that command.</p>
+<p>For example, if your history looked like this:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb67" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>259  ls * 260  ls /usr/bin/*.sh 261  ls *R1*fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>then you could repeat command #260 by entering:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb68" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="ex">!260</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Type <code>!</code> (exclamation point) and then the number of the command from your history. You will be glad you learned this when you need to re-run very complicated commands. For more information on advanced usage of <code>history</code>, read section 9.3 of <a href="https://www.gnu.org/software/bash/manual/html_node/index.html">Bash manual</a>.</p>
+</section>
+<section id="examining-files-the-less-program" class="level2">
+<h2 class="anchored" data-anchor-id="examining-files-the-less-program">Examining Files — the <code>less</code> program</h2>
+<p>We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?</p>
+<p>One way to examine a file is to open the file in a read-only format and navigate through it using a program called <code>less</code>. The commands for navigating <code>less</code> are the same as the <code>man</code> program:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>key</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><kbd>Space</kbd></td>
+<td>to go forward</td>
+</tr>
+<tr class="even">
+<td><kbd>b</kbd></td>
+<td>to go backward</td>
+</tr>
+<tr class="odd">
+<td><kbd>g</kbd></td>
+<td>to go to the beginning</td>
+</tr>
+<tr class="even">
+<td><kbd>G</kbd></td>
+<td>to go to the end</td>
+</tr>
+<tr class="odd">
+<td><kbd>q</kbd></td>
+<td>to quit</td>
+</tr>
+</tbody>
+</table>
+<p>Enter the following command from within the <code>illumina_fastq</code> directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb69" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cs_course/data/illumina_fastq less ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fastq-format" class="level2">
+<h2 class="anchored" data-anchor-id="fastq-format">FASTQ format</h2>
+<p>The contents might look a bit confusing. That’s because they are in FASTQ format, a popular way to store sequencing data in text-based format. These files contain both sequences and information about each sequence’s read accuracy.</p>
+<!-- ![](../fig/fasta_file_format_l2.png){:width="600px"} -->
+<p><a href=".\images/fastq_file_format.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src=".\images/fastq_file_format.png" class="img-fluid" width="600"></a></p>
+<p>Each sequence is described in four lines:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 79%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Line</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Always begins with ‘@’ and gives the sequence identifier and an optional description</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>The actual DNA sequence</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Always begins with a ‘+’ and sometimes the same info in line 1</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Has a string of characters which represent the PHRED quality score for each of the bases in line 2; must have same number of characters as line 2</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="phred-score" class="level2">
+<h2 class="anchored" data-anchor-id="phred-score">PHRED score</h2>
+<pre class="text"><code>Quality encoding: !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJ                   |         |         |         |         | Quality score:    01........11........21........31........41   </code></pre>
+<p>Quality is interpreted as the probability of an incorrect base call. To make it possible to line up each individual nucleotide with its quality score, the numerical score is encoded by a single character. The quality score represents the probability that the corresponding nucleotide call is incorrect. It is a logarithmic scale so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%.</p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise</h2>
+<ol type="1">
+<li>Open the <code>~/cs_course/data/illumina_fastq/ERR4998593_1.fastq</code> file in <code>less</code>. What is the last line of the file? (Hint: use the shortcuts above to speed things up)</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb71" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>1. :FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFF:FFF:FFFFFFFFFFFFFF:FFFFFF:FF:FFFFFFFFFFFFFFFFFFFFFF,F,FFF,FFFFFF,FFFF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<section id="other-programs-to-look-into-files-cat-more-head-and-tail" class="level3">
+<h3 class="anchored" data-anchor-id="other-programs-to-look-into-files-cat-more-head-and-tail">Other programs to look into files: <code>cat</code>, <code>more</code>, <code>head</code>, and <code>tail</code></h3>
+<p>Another way to look at files is using the command <code>cat</code>. This command prints out the entire contents of the file to the console. In large files, like the ones we’re working with today, this can take a long time and should generally be avoided. For small files, it can be a useful tool.</p>
+<p>The <code>more</code> command prints to the console only as much content of a file as it fits in the screen, and waits for you to press the space bar to print the following portion of the file likweise, and so on until either the last portion of the file is printed or you press the <code>q</code> key (for quit) to exit <code>more</code>.</p>
+<p>There’s another final way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it’s formatted.</p>
+<p>The commands are <code>head</code> and <code>tail</code> and they let you look at the beginning and end of a file, respectively.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb72" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb73" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>@ERR4998593.40838091 40838091 length=151 CCACATGCTTTAAGTGCATGTGGTACTGCTCCAGGACCAGCATTGTAGGTCGCCAATGCTTTGGCGTAGGTGCCATCAAACATATTCGTGTAATGAGCCATGAGATGGGCTGCTCCCTTCAATGCATCAACCGGATTCCACGGATCAATGC + :FFFFFFF:,FFF:FFFFFFFFFFFFFFFFFFFF:FFFF:FFFFFFFFFFF:FFFFFFFFF:FFFF:FFFFFFFFFFFFFFFFFFF:FFFF,FFFFFFF,FFF:FF,FFFFFFF::FF::FFFF:FFFFF:,:FFFFF,,FFFFFFFF,,F @ERR4998593.57624042 57624042 length=151 CCTTACCACACCGGGGCTGTGGCGTTCGACCCCATCGGCAAGGCACTCTGGGTTTCCGATAGCTCGCACCATCGGCTGCTGCGCGTCCGCAATCCGGACGGCTGGGAGAGCAAACTGCTCGTGGACACGGTCATCGGTCAGAAGGACAGGT + FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFF @ERR4998593.3 3 length=151 GNGGTGCTCGACGGTGGCTCGGCGGATGCGCATGGCGTCGGGCCTGCGGTCCAGCCGCTCCCGCATGGCGTCGATCACCGCCTCATGCTCCCAGCGTTTGATGCGGCGCTCCTTGCCGCTCGTACACCGGCTCTTCAGCGGGCAGCCGGCGta</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb74" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb75" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>+ FFF:F,FF:FFFFFF:F,:FFF,FF:FF,FFF::F:F,FF,FF,FFF,FFFFFF:FFFFFFF,F,,FFF:FFFF:,FFFF:FF::F:FFF,F:FFFF,:FFFFF,F:F:FF,FF:F:FFFF:FFF:FFF::FF:FF:,::FF,FF:,F,FF @ERR4998593.55595926 55595926 length=151 CAGTACAACGTTCGCTCCCTGAATTTCTGTTTCTCGGCCGGCGAAGCAATTGCTGTGGCTATCCAGGAGCGGTTCAAGCGGATGTTCGGCGTCGAAATTACGGAAGGCTGCGGGATGACCGAACTGCAAATTTACTCCATGAATCCGCCAT + FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFFF:FFFFFFF:FF:FFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF @ERR4998593.34263610 34263610 length=151 ACGCCCCACAGGGCGGCACCGACGCCGCCGCCCGGGCCCGCCGGCCCGCCCCGGTGGGCACCGGTTGCCACTGCGGCTTGCTCGGCCGTCTCACTCACTTGGACACACTTCCGTTCTTCACCGTCTCCACTGGCCGGCTAGACCGGTCCCG + FFFFFFFFF:FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFF,FFFF:FFFFFFFF,FFFFFF::F:F,FFFFFF,FFFFFFFFFFFFF,F:F:FF,FFFF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>-n</code> option to either of these commands can be used to print the first or last <code>n</code> lines of a file.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb76" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 1 ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb77" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>@ERR4998593.40838091 40838091 length=151</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb78" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 1 ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb79" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>F:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFF:FFF:FFFFFFFFFFFFFF:FFFFFF:FF:FFFFFFFFFFFFFFFFFFFFFF,F,FFF,FFFFFF,FFFF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-moving-copying-and-removing-files" class="level2">
+<h2 class="anchored" data-anchor-id="creating-moving-copying-and-removing-files">Creating, moving, copying, and removing files</h2>
+<p>Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move them around or get rid of them? Most of the time, you can do these sorts of file manipulations without the command line, but there will be some cases (like when you’re working with a remote computer like we are for this lesson) where it will be impossible. You’ll also find that you may be working with hundreds of files and want to do similar manipulations to all of those files. In cases like this, it’s much faster to do these operations at the command line.</p>
+<p>We’ll continue looking at our large Illumina sequencing files for the next part of the lesson.</p>
+<section id="copying-files" class="level3">
+<h3 class="anchored" data-anchor-id="copying-files">Copying Files</h3>
+<p>When working with computational data, it’s important to keep a safe copy of that data that can’t be accidentally overwritten or deleted. For this lesson, our raw data is our FASTQ files.</p>
+<p>First, let’s make a copy of one of our FASTQ files using the <code>cp</code> command.</p>
+<p>Navigate to the <code>cs_course/data/illumina_fastq</code> directory and enter:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb80" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> ERR4998593_1.fastq ERR4998593_1_copy.fastq ls <span class="at">-F</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb81" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq  ERR4998593_1_copy.fastq  ERR4998593_2.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The prompt will disappear for up to two minutes and reappear when the command is completed and the backup is made.</p>
+<p>We now have two copies of the <code>ERR4998593_1.fastq</code> file, one of them named <code>ERR4998593_1_copy.fastq</code>. We’ll move this file to a new directory called <code>backup</code> where we’ll store our backup data files.</p>
+</section>
+<section id="creating-directories" class="level3">
+<h3 class="anchored" data-anchor-id="creating-directories">Creating Directories</h3>
+<p>The <code>mkdir</code> command is used to make a directory. Enter <code>mkdir</code>followed by a space, then the directory name you want to create:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb82" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="moving-renaming-files-and-directories" class="level3">
+<h3 class="anchored" data-anchor-id="moving-renaming-files-and-directories">Moving / Renaming files and directories</h3>
+<p>We can now move our backup file to this directory. We can move files around using the command <code>mv</code>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb83" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> ERR4998593_1_copy.fastq backup ls backup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb84" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1_copy.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>mv</code> command is also how you rename files. Let’s rename this file to make it clear that this is a backup:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb85" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> backup mv ERR4998593_1_copy.fastq ERR4998593_1_backup.fastq ls</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb86" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1_backup.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="removing-files-and-directories" class="level3">
+<h3 class="anchored" data-anchor-id="removing-files-and-directories">Removing files and directories</h3>
+<p>You can delete or remove files with the <code>rm</code> command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb87" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> ERR4998593_1_backup.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Important</strong>: The <code>rm</code> command permanently removes the file. Be careful with this command. It doesn’t just nicely put the files in the recycling. They’re really gone.</p>
+<p>By default, <code>rm</code> will not delete directories. You can tell <code>rm</code> to delete a directory using the <code>-r</code> (recursive) option. Let’s delete the backup directory we just made:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb88" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. rm <span class="at">-r</span> backup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will delete not only the directory, but all files within the directory.</p>
+</section>
+</section>
+<section id="exercise-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3">Exercise</h2>
+<p>Starting in the <code>illumina_fastq</code> directory, do the following:</p>
+<ol type="1">
+<li>Make sure that you have deleted your backup directory and all files it contains.</li>
+<li>Create a backup of each of your FASTQ files using <code>cp</code>. (Note: You’ll need to do this individually for each of the two FASTQ files. We haven’t learned yet how to do this with a wildcard.)</li>
+<li>Use a wildcard to move all of your backup files to a new backup directory.</li>
+<li>It doesn’t make sense to keep our backup directory inside the directory it is backing up. What if we accidentally delete the <code>illumina_fastq</code> directory? To fix this, move your new backup directory out of <code>illumina_fastq</code> and into the parent folder, <code>data</code>.</li>
+</ol>
+</section>
+<section id="solution-7" class="level2">
+<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
+<ol type="1">
+<li><code>rm -r backup</code></li>
+<li><code>cp ERR4998593_1.fastq ERR4998593_1_backup.fastq</code> and <code>cp ERR4998593_2.fastq ERR4998593_2_backup.fastq</code></li>
+<li><code>mkdir backup</code> and <code>mv *_backup.fastq backup</code></li>
+<li><code>mv backup ..</code> or <code>mv backup ~/cs_course/data/</code> (note that you do not need to use the -r flag to move directories like you do when deleting them)</li>
+</ol>
+<p>It’s always a good idea to check your work. Move to the <code>data</code> folder with <code>cd ..</code> and then list the contents of <code>backup</code> with <code>ls -l backup</code>. You should see something like:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb89" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>-rw-rw-r-- 1 csuser csuser 2811886584 Feb 22 11:25 ERR4998593_1_backup.fastq -rw-rw-r-- 1 csuser csuser 2302264784 Feb 22 11:29 ERR4998593_2_backup.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here is what your file structure should look like at the end of this episode: <!-- ![A file hierarchy tree](../fig/file_tree_02_ep2.png){:width="500px"} --></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/file_tree_02_ep2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="A file hierarchy tree."><img src=".\images/file_tree_02_ep2.png" class="img-fluid figure-img" alt="A file hierarchy tree." width="450"></a></p>
+<figcaption>A file hierarchy tree.</figcaption>
+</figure>
+</div>
+</section>
+<section id="searching-files" class="level2">
+<h2 class="anchored" data-anchor-id="searching-files">Searching files</h2>
+<p>We discussed in a previous episode how to search within a file using <code>less</code>. We can also search within files without even opening them, using <code>grep</code>. <code>grep</code> is a command-line utility for searching plain-text files for lines matching a specific set of characters (sometimes called a string) or a particular pattern (which can be specified using something called regular expressions). We’re not going to work with regular expressions in this lesson, and are instead going to specify the strings we are searching for. Let’s give it a try!</p>
+</section>
+<section id="nucleotide-abbreviations" class="level2">
+<h2 class="anchored" data-anchor-id="nucleotide-abbreviations">Nucleotide abbreviations</h2>
+<p>The four nucleotides that appear in DNA are abbreviated <code>A</code>, <code>C</code>, <code>T</code> and <code>G</code>. Unknown nucleotides are represented with the letter <code>N</code>. An <code>N</code> appearing in a sequencing file represents a position where the sequencing machine was not able to confidently determine the nucleotide in that position. You can think of an <code>N</code> as being aNy nucleotide at that position in the DNA sequence.</p>
+<p>We’ll search for strings inside of our fastq files. Let’s first make sure we are in the correct directory:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb90" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cs_course/data/illumina_fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>However, suppose we want to see how many reads in our file have bad segments containing three or more unclassified nucleotides (N) in a row.</p>
+</section>
+<section id="determining-quality" class="level2">
+<h2 class="anchored" data-anchor-id="determining-quality">Determining quality</h2>
+<p>In this lesson, we’re going to be manually searching for strings of bases within our sequence results to illustrate some principles of file searching. It can be really useful to do this type of searching to get a feel for the quality of your sequencing results, however, in your research you will most likely use a bioinformatics tool that has a built-in program for filtering out low-quality reads. You’ll learn how to use one such tool in <a href=".\docs/lesson03-qc-assembly/">a later lesson</a>. <!-- https://cloud-span.github.io/nerc-metagenomics03-qc-assembly/02-QC-quality-raw-reads/index.html). --></p>
+<p>To search files we use a new command called <code>grep</code>. The name “grep” comes from an abbreviation of <strong>g</strong>lobal <strong>r</strong>egular <strong>e</strong>xpression <strong>p</strong>rint.</p>
+<p>Let’s search for the string NNN in the ERR4998593_1 file:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb91" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> NNN ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This command returns quite a lot of output to the terminal. Every single line in the ERR4998593_1 file that contains at least 3 consecutive Ns is printed to the terminal, regardless of how long or short the file is.</p>
+<p>We may be interested not only in the actual sequence which contains this string, but in the name (or identifier) of that sequence. Think back to the FASTQ format we discussed previously - if you need a reminder, you can click to reveal one below.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=".\images/fasta_file_format_l2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="."><img src=".\images/fasta_file_format_l2.png" class="img-fluid figure-img" width="450" alt="."></a></p>
+<figcaption>.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>To get all of the information about each read, we will return the line immediately before each match and the two lines immediately after each match.</p>
+<p>We can use the <code>-B</code> argument for grep to return a specific number of lines before each match. The <code>-A</code> argument returns a specific number of lines after each matching line. Here we want the line <em>before</em> and the two lines <em>after</em> each matching line, so we add <code>-B1 -A2</code> to our grep command:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb92" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>One of the sets of lines returned by this command is:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb93" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>@ERR4998593.50651366 50651366 length=151 TCCTTGCGGAGCCGGGCATGCAGGNCCTGCAGGTAGNGGCGGCGGCAGGNGCCGCCGCCGTCTACCACGGTGTANCGNNCNANNNNNCANTCATCGACGGNNGGTGNGACNNCTGCGATCTTGCGNCGCCTGGTCTNGCGGCCATCCTCTN + FFF,FFFFFFFF:,,F:F,FFFFF#,:F,FFFF:F,#,FFFFF::FF:,#FFFFFFFFF:F,FF,FFFF,F,FF#,F##:#:#####:F#FFFFFFF,FF##:FFF#F:F##FFF,FFFFFF,,,#FF:F:,FFFF#F:::F:FFF:FF,#</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-4" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4">Exercise</h2>
+<ol type="1">
+<li><p>Search for the sequence <code>AAAACCCCGGGGTTTT</code> in the <code>ERR4998593_1.fastq</code> file. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. What is the output?</p></li>
+<li><p>Search for the sequence <code>AACCGGTTAACCGGTT</code> in both FASTQ files. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. How many matching sequences do you get? (this may take up to 4 minutes to complete so be patient!)</p></li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><code>grep -B1 AAAACCCCGGGGTTTT ERR4998593_1.fastq</code></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb94" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>@ERR4998593.49988640 49988640 length=151 GGTCCATGAAGCTTGTACTGCGCGCCGATATTCTCGAAGCCGAGGCCCTAGTCCGCAAAAAACAAAAACCCCGGGGTTTTGGCCCCGGGGTTTGTCGTTTGAGCGTTTGCCGCGGCGATCAGAACCGGTAGTTGACGCCGGCGCGAACGAT -- @ERR4998593.16888007 16888007 length=151 GCCGAGGCCCTAGTCCGCAAAAAACAAAAACCCCGGGGTTTTGGCCCCGGGGTTTGTCGTTTTAGCGTTTGCCGCGGCGATCAGAACCGGTAGTTGACGCCGGCGCGAACGATGTTGGTGGTGAACGACACGTTGTCGGTCACGAACGGTC -- @ERR4998593.39668571 39668571 length=151 CCCCGGGGCCAAAACCCCGGGGTTTTTGTTTTTTGCGGACTAGGCCTCGGCTTCGAGAATATCGGCGCGCAGTCCAAGCTTCATGGACCTGTCGTGACCCAAGATGGCGGATCAGGCGGGAGACTCAGGTTTTCCCGAAAGGTCTTTATGC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><code>grep -B1 AACCGGTTAACCGGTT *.fastq</code></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb95" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1.fastq-@ERR4998593.64616570 64616570 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_1.fastq-@ERR4998593.64617528 64617528 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_1.fastq-@ERR4998593.52741374 52741374 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_2.fastq-@ERR4998593.2096117 2096117 length=151 ERR4998593_2.fastq:ATTGGCTGGCGGCAGTCGCGTTGGCGGCTTGGCGGTTAACCGGTTAACCGGTTGACTAATGGGAGGATAACACTTCGCGACAGGAACGCAACACAATTCCGGATCAATAGGGCAACTGCCCTGGGATGGTTTTTGAGGTGGACACGGACCA -- ERR4998593_2.fastq-@ERR4998593.11478972 11478972 length=151 ERR4998593_2.fastq:GAACAGGGCTGTTAGTTAACCGGTCAAAGCCGCCTTAACCGGTTAACCGGTTGTAACGCCCCGCTATGCTCGTTGTGTCCGCTATCTCTGTGATTGTGTTTGTTTCGGTGTTTGCTTCGGTTTGCCGTTTGTCTATGCCGAGAAGTGGAGG</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="redirecting-output" class="level2">
+<h2 class="anchored" data-anchor-id="redirecting-output">Redirecting output</h2>
+<p><code>grep</code> allowed us to identify sequences in our FASTQ files that match a particular pattern. All of these sequences were printed to our terminal screen, but in order to work with these sequences and perform other operations on them, we will need to capture that output in some way.</p>
+<p>We can do this with something called “redirection”. The idea is that we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location. In our case, we want to print this information to a file so that we can look at it later and use other commands to analyse this data.</p>
+<section id="redirecting-output-to-a-file-the-command" class="level3">
+<h3 class="anchored" data-anchor-id="redirecting-output-to-a-file-the-command">Redirecting output to a file — the <code>&gt;</code> command</h3>
+<p>The command for redirecting output to a file is <code>&gt;</code>.</p>
+<p>Let’s try out this command and copy all the records (including all four lines of each record) in our FASTQ files that contain ‘NNN’ to another file called <code>bad_reads.txt</code>. The new flag <code>--no-group-separator</code> stops grep from putting a dashed line (–) between matches. The reason this is necessary will become apparent shortly.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb96" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="op">&gt;</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The prompt should sit there a little bit, and then it should look like nothing happened. But type <code>ls</code>. You should see a new file called <code>bad_reads.txt</code>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+File extensions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You might be confused about why we’re naming our output file with a <code>.txt</code> extension. After all, it will be holding FASTQ formatted data that we’re extracting from our FASTQ files.</p>
+<p>Won’t it also be a FASTQ file?</p>
+<p>The answer is, yes - it will be a FASTQ file and it would make sense to name it with a <code>.fastq</code> extension.</p>
+<p>However, using an extension such as <code>.txt</code> makes it easy to distinguish the files you may generate through some exploratory processing, as the one we just made with the <code>grep</code> program, from the original sequencing files of your project. So you can easily select all the files with a specific extension for further processing using the wildcard <code>*</code> character, for example: <code>grep .. *.fastq</code> or <code>mv *.txt newlocation</code>.</p>
+</div>
+</div>
+</section>
+<section id="counting-number-of-lines-in-files-the-wc-program" class="level3">
+<h3 class="anchored" data-anchor-id="counting-number-of-lines-in-files-the-wc-program">Counting number of lines in files — the <code>wc</code> program</h3>
+<p>We can check the number of lines in our new file using a command called <code>wc</code>. <code>wc</code> stands for <strong>word count</strong>. This command counts the number of words, lines, and characters in a file.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb97" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb98" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>  52   78 4511 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will tell us the number of lines, words and characters in the file. If we want only the number of lines, we can use the <code>-l</code> flag for <code>lines</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb99" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb100" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>52 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>--no-group-separator</code> flag used above prevents grep from adding unnecessary extra lines to the file which would alter the number of lines present.</p>
+</section>
+</section>
+<section id="exercise-5" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-5">Exercise</h2>
+<ol type="1">
+<li>How many sequences are there in <code>ERR4998593_1.fastq</code>? Remember that every sequence is formed by four lines.</li>
+<li>How many sequences in <code>ERR4998593_1.fastq</code> contain at least 5 consecutive Ns?</li>
+</ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb101" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb102" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>137054440 ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now you can divide this number by four to get the number of sequences in your fastq file (34263610).</p>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb103" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> NNNNN ERR4998593_1.fastq <span class="op">&gt;</span> bad_reads.txt wc <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb104" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>3 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<section id="the-command-redirects-and-overwrites" class="level3">
+<h3 class="anchored" data-anchor-id="the-command-redirects-and-overwrites">The command <code>&gt;</code> redirects and overwrites</h3>
+<p>We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the <code>&gt;</code> command to redirect output to a file, the new output will replace the output that was already present in the file. This is called “overwriting” and, just like you don’t want to overwrite your video recording of your kid’s first birthday party, you also want to avoid overwriting your data files.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb105" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="op">&gt;</span> bad_reads.txt wc <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb106" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>52 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb107" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNNNNNNNNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="op">&gt;</span> bad_reads.txt wc <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb108" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>0 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, the output of our second call to <code>wc</code> shows that we no longer have any lines in our <code>bad_reads.txt</code> file. This is because the second string we searched (<code>NNNNNNNNNN</code>) does not match any strings in the file. So our file was overwritten and is now empty.</p>
+</section>
+<section id="the-command-redirects-and-appends" class="level3">
+<h3 class="anchored" data-anchor-id="the-command-redirects-and-appends">The command <code>&gt;&gt;</code> redirects and appends</h3>
+<p>We can avoid overwriting our files by using the command <code>&gt;&gt;</code>. <code>&gt;&gt;</code> is known as the “append redirect” and will append new output to the end of a file, rather than overwriting it.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb109" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="op">&gt;</span> bad_reads.txt wc <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb110" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>52 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb111" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNNNNNNNNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="op">&gt;&gt;</span> bad_reads.txt wc <span class="at">-l</span> bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb112" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>52 bad_reads.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output of our second call to <code>wc</code> shows that we have not overwritten our original data.</p>
+</section>
+<section id="redirecting-output-as-input-to-other-program-the-pipe-command" class="level3">
+<h3 class="anchored" data-anchor-id="redirecting-output-as-input-to-other-program-the-pipe-command">Redirecting output as input to other program — the pipe <code>|</code> command</h3>
+<p>Since we might have multiple different criteria we want to search for, creating a new output file each time has the potential to clutter up our workspace. We also thus far haven’t been interested in the actual contents of those files, only in the number of reads that we’ve found. We created the files to store the reads and then counted the lines in the file to see how many reads matched our criteria. There’s a way to do this, however, that doesn’t require us to create these intermediate files - the pipe command (<code>|</code>).</p>
+<p>This is probably not a key on your keyboard you use very much, so let’s all take a minute to find that key. For the standard QWERTY keyboard layout, the <code>|</code> character can be found using the key combination</p>
+<ul>
+<li><kbd>Shift</kbd>+<kbd>\</kbd></li>
+</ul>
+<p>What <code>|</code> does is take the output that is scrolling by on the terminal and uses that output as input to another command. When our output was scrolling by, we might have wished we could slow it down and look at it, like we can with <code>less</code>. Well it turns out that we can! We can redirect our output from our <code>grep</code> call through the <code>less</code> command.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb113" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN ERR4998593_1.fastq <span class="kw">|</span> <span class="fu">less</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can now see the output from our <code>grep</code> call within the <code>less</code> interface. We can use the up and down arrows to scroll through the output and use <code>q</code> to exit <code>less</code>.</p>
+<p>If we don’t want to create a file before counting lines of output from our <code>grep</code> search, we could directly pipe the output of the grep search to the command <code>wc -l</code>. This can be helpful for investigating your output if you are not sure you would like to save it to a file.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Code</strong></pre>
+</div>
+<div class="sourceCode" id="cb114" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-B1</span> <span class="at">-A2</span> NNN <span class="at">--no-group-separator</span> ERR4998593_1.fastq <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Output</strong></pre>
+</div>
+<div class="sourceCode" id="cb115" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>52</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="custom-grep-control" class="level2">
+<h2 class="anchored" data-anchor-id="custom-grep-control">Custom <code>grep</code> control</h2>
+<p>Use <code>man grep</code> to read more about other options to customize the output of <code>grep</code> including extended options, anchoring characters, and much more.</p>
+<p>Redirecting output is often not intuitive, and can take some time to get used to. Once you’re comfortable with redirection, however, you’ll be able to combine any number of commands to do all sorts of exciting things with your data!</p>
+<p>We’ll be using the redirect <code>&gt;</code> and pipe <code>|</code> later in the course as part of our analysis workflow, so you will get lots of practice using them.</p>
+<p>None of the command line programs we’ve been learning do anything all that impressive on their own, but when you start chaining them together, you can do some really powerful things very efficiently.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("^(?:http:|https:)\/\/ukri-digital-research-skills-catalyst\.github\.io\/YBDTP-command-line");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://digitalskillscatalyst.ac.uk/" class="uri">https://digitalskillscatalyst.ac.uk/</a>.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
