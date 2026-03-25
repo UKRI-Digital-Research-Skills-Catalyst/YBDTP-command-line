@@ -6,24 +6,17 @@ date: last-modified
 date-format: D MMMM, YYYY
 
 website:
-  title: "Reproducible reports<br>with Quarto"
+  title: "Introduction to command line"
   favicon: images/logo_no_text_transparent.png
   page-footer:
     left: "<https://digitalskillscatalyst.ac.uk/>."
   navbar:
     logo: images/logo_transparent_background.png
     background: primary
-    site-url: https://ukri-digital-research-skills-catalyst.github.io/quarto-intro/
-    repo-url: https://ukri-digital-research-skills-catalyst.github.io/quarto-intro/
+    site-url: https://ukri-digital-research-skills-catalyst.github.io/YBDTP-command-line/
+    repo-url: https://ukri-digital-research-skills-catalyst.github.io/YBDTP-command-line/
     page-navigation: true
     search: true
-    left:
-      - text: "Welcome!"
-        file: index.qmd
-      - text: "Before the course"
-        file:  before.qmd
-      - text: "Materials"
-        file:  materials.qmd
 
 execute:
   echo: true
@@ -39,7 +32,7 @@ format:
   html:
     css: styles.css
     link-external-newwindow: true
-    link-external-filter: '^(?:http:|https:)\/\/ukri-digital-research-skills-catalyst\.github\.io\/quarto-intro'
+    link-external-filter: '^(?:http:|https:)\/\/ukri-digital-research-skills-catalyst\.github\.io\/YBDTP-command-line'
     code-copy: true
     code-link: true
     code-overflow: wrap
@@ -57,7 +50,5 @@ metadata-files:
   - _downlit.yml
 
 fig-dpi: 600
-
-bibliography: references.bib
 
 editor: source
