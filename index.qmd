@@ -1,4 +1,18 @@
-#Introduction to Command Line
+# Introduction to Command Line
+
+Welcome to the UKRI Digital Research Skills Catalyst introductory guide to the command line!
+
+This short 2 hour tutorial will provide the basics of everything you need to know to start using the command line, including:
+
+- What is a file system?
+
+- What is the shell?
+
+- How can I use the shell commands to navigate the file system?
+
+- How can I use the shell commands to use software and manipulate data?
+
+Before we begin there is a brief setup required, as detailed below:
 
 ## Getting started
 
@@ -40,7 +54,7 @@ Next, open the command line (also known as the terminal or shell) and navigate t
 
 -   Press Enter
 
-You should now be working inside your course directory.
+You should now be working inside your course directory. Let's begin!
 
 ## Part One: What is a file system?
 
