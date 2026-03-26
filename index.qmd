@@ -2,7 +2,7 @@
 
 Welcome to the UKRI Digital Research Skills Catalyst introductory guide to the command line!
 
-This short 2 hour tutorial will provide the basics of everything you need to know to start using the command line, including:
+This short 90 minute tutorial will provide the basics of everything you need to know to start using the command line, including:
 
 - What is a file system?
 
