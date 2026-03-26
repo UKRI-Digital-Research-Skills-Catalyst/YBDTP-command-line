@@ -1,3 +1,5 @@
+#Introduction to Command Line
+
 ## Getting started
 
 The first thing we need to do is set up our working files on your computer.
@@ -40,7 +42,7 @@ Next, open the command line (also known as the terminal or shell) and navigate t
 
 You should now be working inside your course directory.
 
-## What is a file system?
+## Part One: What is a file system?
 
 A file system is exactly what it sounds like - a way for your computer to store your data in an organised way using **files**.
 
@@ -65,7 +67,7 @@ It is easiest to picture a file system, or part of it, as a tree that starts at 
 The directory you are working inside is called your **working directory**. For example, if you were editing `doc2.txt` in the diagram above, your working directory would be the folder called `docs`.
 
 ::: callout-note
-## Exercise
+### Exercise
 
 Think about your own computer and how your files and directories are organised. Sketch a tree diagram like the one above for your file system.
 
@@ -83,7 +85,7 @@ You probably already use these applications regularly to find, open and organise
 
 <!-- | Finder (Mac) | <img src="../fig/icon-finder-mac.png" width="50px"> | -->
 
-## File paths
+### File paths
 
 It is not practical to draw out a tree diagram every time we want to refer to a file's location. Instead, we can represent the information as a **file path**.
 
@@ -93,7 +95,7 @@ For example, the path for the file called `doc3.txt` in the file system above lo
 
 It is useful to note that Windows uses backslashes (`\`) to separate path components, while Unix, Linux and Mac use forward slashes (`/`).
 
-## Root and home directories
+### Root and home directories
 
 The `root` is the top-level of directories, which contains all other directories further down the tree.
 
@@ -121,7 +123,7 @@ Your home directory is:
 
 In Linux (the operating system we will use later in the course), a tilde symbol (`~`) is used as a shortcut for your home directory. So, for example, the path `~/docs/doc2.txt` is equivalent to `/home/user1/docs/doc2.txt`.
 
-## Absolute vs relative paths
+### Absolute vs relative paths
 
 There are two ways of writing a file path - absolute paths and relative paths.
 
@@ -132,7 +134,7 @@ A relative path describes the location of a file relative to your current workin
 If, however, you were in the folder called `docs` and you wanted to open one of the `.exe` files, you would need to give the path to `.exe` *relative* to the docs folder or give the absolute path.
 
 :::: callout-note
-## Challenge
+### Challenge
 
 Use the file system above to answer these questions.
 
@@ -140,37 +142,15 @@ Use the file system above to answer these questions.
 2.  Assuming you are currently in the directory called `docs`, what is the relative path for the document `doc2.txt`?
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 1.  The absolute path is `/home/user1/docs/data/doc4.txt` or `~/docs/data/doc4.txt`.
 2.  The relative path is `doc2.txt` (as you are already in the directory where `doc2.txt` is stored).
 :::
 ::::
 
-## Create a folder for the course
 
-To keep things tidy and easily accessible, we will create a folder (directory) to keep everything related to this course: the key you will need to log in, your notes, data etc.
-
-In theory you can make this folder anywhere in your file system but we recommend making it inside your Desktop folder, to make it easy to access.
-
-1.  **Create the folder** `cloudspan` in your *Desktop*.
-
-    Minimise all windows until you can see your desktop background. Right click and select *New*, then *Folder*. Name the folder `cloudspan`.
-
-    You should see a folder icon appear on your desktop with the label `cloudspan`.
-
-    Additionally, if you enter your file explorer application you should be able to click on the *Desktop* directory at the side and see the `cloudspan` folder.
-
-2.  **Write down the absolute path** to your `cloudspan` folder.
-
-    Find out what the absolute path is using your file manager application. Right click on the folder, or in any blank space inside the folder, and then:
-
-    -   **Windows users**: select *Properties*, then look at the field called *Location*. Your path will be separated with backslashes (`\`) but you should write it down using forward slashes (`/`).
-    -   **Mac Users**: select *Get info*, then look at the field called *Where*. Your path should start with the word `Users/` - ignore anything that comes before this. Separate your path components using forward slashes (`/`).
-
-    Now add the folder name (`/cloudspan`) to the end of this path. This is your absolute path. Once you have this written down, do not lose it! Now you can find your way back to the `cloudspan` folder whenever you need to, no matter where you are in your file structure.
-
-## What is a shell and why should I care?
+## Part Two: What is a shell and why should I care?
 
 A *shell* is a computer program that has a command line where you type commands to do things on your computer rather than using menus and buttons on a Graphical User Interface (GUI).
 
@@ -183,7 +163,7 @@ There are many reasons to learn how to use the shell/command line:
 
 In this lesson you will learn how to use the command line interface to move around in your file system.
 
-## How to access the shell
+### How to access the shell
 
 To recap how to access your shell:
 
@@ -197,7 +177,7 @@ To recap how to access your shell:
 
     -   OR: Open **Terminal** and type `cd` followed by the absolute path that leads to your `cloudspan` folder. Press enter.
 
-## Navigating your file system
+### Navigating your file system
 
 Several commands are frequently used to create, inspect, rename, and delete files and directories.
 
@@ -263,12 +243,12 @@ man ls
 
 `man` (short for manual) displays detailed documentation (also referred as man page or man file) for `bash` commands. It is a powerful resource to explore `bash` commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard's down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.
 
-## Challenge
+### Challenge
 
 Use the `-l` option for the `ls` command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don't see with the bare `ls` command?
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 ``` {.bash filename="Code"}
 ls -l
@@ -325,7 +305,7 @@ Learning to navigate a new file directory can be confusing at first. To help, he
 
 First we moved from our home directory at `csuser` into the `cs_course` directory, which is one level down. From there we opened up the `data` directory, which contains subdirectories - `illumina_fastq` and `nano_fastq`. We had a peek inside both of these directories and found that `illumina_fastq` contained two files, while `nano_fastq` contained one.
 
-### Shortcut: Tab Completion
+#### Shortcut: Tab Completion
 
 It is very easy to make mistakes typing our filenames and commands. Thankfully, "tab completion" can help us! When you start typing out the name of a directory or file, then hit the <kbd>tab</kbd> key, the shell will try to fill in the rest of the directory or file name.
 
@@ -384,12 +364,12 @@ pwck      pwconv    pwd       pwdx      pwunconv
 Displays the name of every program that starts with `pw`.
 
 ::: callout-tip
-## Tip
+### Tip
 
 You might find it useful to keep a note of the commands you learn in this course, so you can easily remember them in future. This will be faster than scrolling through the course each time you forget a command. While using your Cloud-SPAN AWS instance you can also type `csguide` into the command prompt and hit enter for a text-based guide to the command line, including frequently used commands.
 :::
 
-## Moving around the file system
+### Moving around the file system
 
 Now we're going to learn some additional commands for moving around within our file system.
 
@@ -449,7 +429,7 @@ bin  cs_course  software
 
 This prints the contents of the folder called `csuser` (our home folder).
 
-## Finding hidden directories
+### Finding hidden directories
 
 There is a hidden directory inside the `cs_course` directory. Explore the options for `ls` in the man page to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in the hidden directory.
 
@@ -458,7 +438,7 @@ Hint 1: hidden files and folders in Unix start with `.`, for example `.my_hidden
 Hint 2: `cs_course` is one level above `data`, our current working directory.
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 First use the `man` command to look at the options for `ls`.
 
@@ -503,7 +483,7 @@ In most commands the flags can be combined together in no particular order to ob
 ls -Fa ls -laF
 ```
 
-## Examining the contents of other directories
+### Examining the contents of other directories
 
 In the above section we learned how to use `pwd` to find our current location within our file system. We also learned how to use `cd` to change locations and `ls` to list the contents of a directory.
 
@@ -535,12 +515,12 @@ cd cd cs_course/data/
 
 This will take you to the `data` directory without having to go through the intermediate `cs_course` directory.
 
-## Navigating practice
+### Navigating practice
 
 Navigate to your home directory. From there, list the contents of the `illumina_fastq` directory.
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 ``` {.bash filename="Code"}
 cd ls cs_course/data/illumina_fastq
@@ -551,7 +531,7 @@ ERR4998593_1.fastq  ERR4998593_2.fastq
 ```
 :::
 
-## Full vs. Relative Paths
+### Full vs. Relative Paths
 
 The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
 
@@ -591,7 +571,7 @@ You can usually use either a full path or a relative path depending on what is m
 
 Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them. We will be using the same directory structure for this whole course so navigating it should get easier as you progress.
 
-## Relative path resolution
+### Relative path resolution
 
 Using the file system diagram below, if `pwd` displays `/home/csuser/cs_course/data/illumina_fastq`, what will `ls ../nano_fastq` display?
 
@@ -602,7 +582,7 @@ Can you explain why?
 ![Instance file tree.](/images/blank_instance_file_tree_with_hidden.png){alt="Instance file tree." width="400px" fig-alt="Blank instance file tree."}
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 ``` {.default filename="Output"}
 ERR5000342_sub12.fastq
@@ -611,7 +591,7 @@ ERR5000342_sub12.fastq
 The command `ls ..` moves us up a folder level before we list the contents of `nano_fastq`.
 :::
 
-### Navigational Shortcuts
+#### Navigational Shortcuts
 
 The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.
 
@@ -637,13 +617,13 @@ This prints the contents of your home directory, without you needing to type the
 
 The commands `cd`, and `cd ~` are very useful for quickly navigating back to your home directory. We will be using the `~` character in later lessons to specify our home directory.
 
-## Working with Files
+## Part Three: Working with Files
 
-### Our data set: FASTQ files
+#### Our data set: FASTQ files
 
 Now that we know how to navigate around our directory structure, let's start working with our sequencing files. We are looking at the results from a short-read sequencing experiment, which are stored in our `illumina_fastq` directory.
 
-### Wildcards
+#### Wildcards
 
 Navigate to your `illumina_fastq` directory:
 
@@ -687,7 +667,7 @@ ls /usr/bin/*.sh
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`. Note that the output displays **full** paths to files, since each result starts with `/`.
 
-## Exercise
+### Exercise
 
 What command would you use for each of the following tasks? Start from your current directory using a single`ls`command for each:
 
@@ -701,7 +681,7 @@ Bonus: What would the output look like if a wildcard could *not* be matched? Try
 Hint: Question 4 requires a Unix wildcard that we haven't talked about yet. Try searching the internet for information about Unix wildcards to find what you need to solve the bonus problem.
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 1.  `ls /usr/bin/c*`
 2.  `ls /usr/bin/*a*`
@@ -711,7 +691,7 @@ Hint: Question 4 requires a Unix wildcard that we haven't talked about yet. Try 
 Bonus: `ls: cannot access 'missing*': No such file or directory`
 :::
 
-## Command History
+### Command History
 
 If you want to repeat a command that you've run recently, you can access previous commands using the up arrow on your keyboard to go back to the most recent command. Likewise, the down arrow takes you forward in the command history.
 
@@ -737,7 +717,7 @@ then you could repeat command #260 by entering:
 
 Type `!` (exclamation point) and then the number of the command from your history. You will be glad you learned this when you need to re-run very complicated commands. For more information on advanced usage of `history`, read section 9.3 of [Bash manual](https://www.gnu.org/software/bash/manual/html_node/index.html).
 
-## Examining Files --- the `less` program
+### Examining Files --- the `less` program
 
 We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?
 
@@ -757,7 +737,7 @@ Enter the following command from within the `illumina_fastq` directory:
 cd ~/cs_course/data/illumina_fastq less ERR4998593_1.fastq
 ```
 
-## FASTQ format
+### FASTQ format
 
 The contents might look a bit confusing. That's because they are in FASTQ format, a popular way to store sequencing data in text-based format. These files contain both sequences and information about each sequence's read accuracy.
 
@@ -774,7 +754,7 @@ Each sequence is described in four lines:
 | 3 | Always begins with a '+' and sometimes the same info in line 1 |
 | 4 | Has a string of characters which represent the PHRED quality score for each of the bases in line 2; must have same number of characters as line 2 |
 
-## PHRED score
+### PHRED score
 
 ``` text
 Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJ                   |         |         |         |         | Quality score:    01........11........21........31........41   
@@ -782,19 +762,19 @@ Quality encoding: !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJ                   |
 
 Quality is interpreted as the probability of an incorrect base call. To make it possible to line up each individual nucleotide with its quality score, the numerical score is encoded by a single character. The quality score represents the probability that the corresponding nucleotide call is incorrect. It is a logarithmic scale so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%.
 
-## Exercise
+### Exercise
 
 1.  Open the `~/cs_course/data/illumina_fastq/ERR4998593_1.fastq` file in `less`. What is the last line of the file? (Hint: use the shortcuts above to speed things up)
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 ``` {.default filename="Output"}
 1. :FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFF:FFF:FFFFFFFFFFFFFF:FFFFFF:FF:FFFFFFFFFFFFFFFFFFFFFF,F,FFF,FFFFFF,FFFF
 ```
 :::
 
-### Other programs to look into files: `cat`, `more`, `head`, and `tail`
+#### Other programs to look into files: `cat`, `more`, `head`, and `tail`
 
 Another way to look at files is using the command `cat`. This command prints out the entire contents of the file to the console. In large files, like the ones we're working with today, this can take a long time and should generally be avoided. For small files, it can be a useful tool.
 
@@ -838,13 +818,13 @@ tail -n 1 ERR4998593_1.fastq
 F:FFFFFFFFFFFFFFFFFFFF:FFFFFFFFFFFFFFFF:FFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFF:FFFFF:FFF:FFFFFFFFFFFFFF:FFFFFF:FF:FFFFFFFFFFFFFFFFFFFFFF,F,FFF,FFFFFF,FFFF
 ```
 
-## Creating, moving, copying, and removing files
+### Creating, moving, copying, and removing files
 
 Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move them around or get rid of them? Most of the time, you can do these sorts of file manipulations without the command line, but there will be some cases (like when you're working with a remote computer like we are for this lesson) where it will be impossible. You'll also find that you may be working with hundreds of files and want to do similar manipulations to all of those files. In cases like this, it's much faster to do these operations at the command line.
 
 We'll continue looking at our large Illumina sequencing files for the next part of the lesson.
 
-### Copying Files
+#### Copying Files
 
 When working with computational data, it's important to keep a safe copy of that data that can't be accidentally overwritten or deleted. For this lesson, our raw data is our FASTQ files.
 
@@ -864,7 +844,7 @@ The prompt will disappear for up to two minutes and reappear when the command is
 
 We now have two copies of the `ERR4998593_1.fastq` file, one of them named `ERR4998593_1_copy.fastq`. We'll move this file to a new directory called `backup` where we'll store our backup data files.
 
-### Creating Directories
+#### Creating Directories
 
 The `mkdir` command is used to make a directory. Enter `mkdir`followed by a space, then the directory name you want to create:
 
@@ -872,7 +852,7 @@ The `mkdir` command is used to make a directory. Enter `mkdir`followed by a spac
 mkdir backup
 ```
 
-### Moving / Renaming files and directories
+#### Moving / Renaming files and directories
 
 We can now move our backup file to this directory. We can move files around using the command `mv`:
 
@@ -894,7 +874,7 @@ cd backup mv ERR4998593_1_copy.fastq ERR4998593_1_backup.fastq ls
 ERR4998593_1_backup.fastq
 ```
 
-### Removing files and directories
+#### Removing files and directories
 
 You can delete or remove files with the `rm` command:
 
@@ -912,7 +892,7 @@ cd .. rm -r backup
 
 This will delete not only the directory, but all files within the directory.
 
-## Exercise
+### Exercise
 
 Starting in the `illumina_fastq` directory, do the following:
 
@@ -921,7 +901,7 @@ Starting in the `illumina_fastq` directory, do the following:
 3.  Use a wildcard to move all of your backup files to a new backup directory.
 4.  It doesn't make sense to keep our backup directory inside the directory it is backing up. What if we accidentally delete the `illumina_fastq` directory? To fix this, move your new backup directory out of `illumina_fastq` and into the parent folder, `data`.
 
-## Solution
+### Solution
 
 1.  `rm -r backup`
 2.  `cp ERR4998593_1.fastq ERR4998593_1_backup.fastq` and `cp ERR4998593_2.fastq ERR4998593_2_backup.fastq`
@@ -938,11 +918,11 @@ Here is what your file structure should look like at the end of this episode: <!
 
 ![A file hierarchy tree.](/images/file_tree_02_ep2.png){alt="A file hierarchy tree." width="450px" fig-alt="A file hierarchy tree."}
 
-## Searching files
+### Searching files
 
 We discussed in a previous episode how to search within a file using `less`. We can also search within files without even opening them, using `grep`. `grep` is a command-line utility for searching plain-text files for lines matching a specific set of characters (sometimes called a string) or a particular pattern (which can be specified using something called regular expressions). We're not going to work with regular expressions in this lesson, and are instead going to specify the strings we are searching for. Let's give it a try!
 
-## Nucleotide abbreviations
+### Nucleotide abbreviations
 
 The four nucleotides that appear in DNA are abbreviated `A`, `C`, `T` and `G`. Unknown nucleotides are represented with the letter `N`. An `N` appearing in a sequencing file represents a position where the sequencing machine was not able to confidently determine the nucleotide in that position. You can think of an `N` as being aNy nucleotide at that position in the DNA sequence.
 
@@ -954,7 +934,7 @@ cd ~/cs_course/data/illumina_fastq
 
 However, suppose we want to see how many reads in our file have bad segments containing three or more unclassified nucleotides (N) in a row.
 
-## Determining quality
+### Determining quality
 
 In this lesson, we're going to be manually searching for strings of bases within our sequence results to illustrate some principles of file searching. It can be really useful to do this type of searching to get a feel for the quality of your sequencing results, however, in your research you will most likely use a bioinformatics tool that has a built-in program for filtering out low-quality reads. You'll learn how to use one such tool in [a later lesson](/docs/lesson03-qc-assembly/). <!-- https://cloud-span.github.io/nerc-metagenomics03-qc-assembly/02-QC-quality-raw-reads/index.html). -->
 
@@ -971,7 +951,7 @@ This command returns quite a lot of output to the terminal. Every single line in
 We may be interested not only in the actual sequence which contains this string, but in the name (or identifier) of that sequence. Think back to the FASTQ format we discussed previously - if you need a reminder, you can click to reveal one below.
 
 ::: {.callout-caution collapse="true"}
-## Hint
+### Hint
 
 ![.](/images/fasta_file_format_l2.png){alt="." width="450px"}
 :::
@@ -990,14 +970,14 @@ One of the sets of lines returned by this command is:
 @ERR4998593.50651366 50651366 length=151 TCCTTGCGGAGCCGGGCATGCAGGNCCTGCAGGTAGNGGCGGCGGCAGGNGCCGCCGCCGTCTACCACGGTGTANCGNNCNANNNNNCANTCATCGACGGNNGGTGNGACNNCTGCGATCTTGCGNCGCCTGGTCTNGCGGCCATCCTCTN + FFF,FFFFFFFF:,,F:F,FFFFF#,:F,FFFF:F,#,FFFFF::FF:,#FFFFFFFFF:F,FF,FFFF,F,FF#,F##:#:#####:F#FFFFFFF,FF##:FFF#F:F##FFF,FFFFFF,,,#FF:F:,FFFF#F:::F:FFF:FF,#
 ```
 
-## Exercise
+### Exercise
 
 1.  Search for the sequence `AAAACCCCGGGGTTTT` in the `ERR4998593_1.fastq` file. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. What is the output?
 
 2.  Search for the sequence `AACCGGTTAACCGGTT` in both FASTQ files. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. How many matching sequences do you get? (this may take up to 4 minutes to complete so be patient!)
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 1.  `grep -B1 AAAACCCCGGGGTTTT ERR4998593_1.fastq`
 
@@ -1012,13 +992,13 @@ ERR4998593_1.fastq-@ERR4998593.64616570 64616570 length=151 ERR4998593_1.fastq:G
 ```
 :::
 
-## Redirecting output
+### Redirecting output
 
 `grep` allowed us to identify sequences in our FASTQ files that match a particular pattern. All of these sequences were printed to our terminal screen, but in order to work with these sequences and perform other operations on them, we will need to capture that output in some way.
 
 We can do this with something called "redirection". The idea is that we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location. In our case, we want to print this information to a file so that we can look at it later and use other commands to analyse this data.
 
-### Redirecting output to a file --- the `>` command
+#### Redirecting output to a file --- the `>` command
 
 The command for redirecting output to a file is `>`.
 
@@ -1031,7 +1011,7 @@ grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq > bad_reads.txt
 The prompt should sit there a little bit, and then it should look like nothing happened. But type `ls`. You should see a new file called `bad_reads.txt`.
 
 ::: callout-warning
-## File extensions
+### File extensions
 
 You might be confused about why we're naming our output file with a `.txt` extension. After all, it will be holding FASTQ formatted data that we're extracting from our FASTQ files.
 
@@ -1042,7 +1022,7 @@ The answer is, yes - it will be a FASTQ file and it would make sense to name it 
 However, using an extension such as `.txt` makes it easy to distinguish the files you may generate through some exploratory processing, as the one we just made with the `grep` program, from the original sequencing files of your project. So you can easily select all the files with a specific extension for further processing using the wildcard `*` character, for example: `grep .. *.fastq` or `mv *.txt newlocation`.
 :::
 
-### Counting number of lines in files --- the `wc` program
+#### Counting number of lines in files --- the `wc` program
 
 We can check the number of lines in our new file using a command called `wc`. `wc` stands for **word count**. This command counts the number of words, lines, and characters in a file.
 
@@ -1066,13 +1046,13 @@ wc -l bad_reads.txt
 
 The `--no-group-separator` flag used above prevents grep from adding unnecessary extra lines to the file which would alter the number of lines present.
 
-## Exercise
+### Exercise
 
 1.  How many sequences are there in `ERR4998593_1.fastq`? Remember that every sequence is formed by four lines.
 2.  How many sequences in `ERR4998593_1.fastq` contain at least 5 consecutive Ns?
 
 ::: {.callout-caution collapse="true"}
-## Solution
+### Solution
 
 1.  
 
@@ -1097,7 +1077,7 @@ grep NNNNN ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
 ```
 :::
 
-### The command `>` redirects and overwrites
+#### The command `>` redirects and overwrites
 
 We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the `>` command to redirect output to a file, the new output will replace the output that was already present in the file. This is called "overwriting" and, just like you don't want to overwrite your video recording of your kid's first birthday party, you also want to avoid overwriting your data files.
 
@@ -1119,7 +1099,7 @@ grep -B1 -A2 NNNNNNNNNN --no-group-separator ERR4998593_1.fastq > bad_reads.txt 
 
 Here, the output of our second call to `wc` shows that we no longer have any lines in our `bad_reads.txt` file. This is because the second string we searched (`NNNNNNNNNN`) does not match any strings in the file. So our file was overwritten and is now empty.
 
-### The command `>>` redirects and appends
+#### The command `>>` redirects and appends
 
 We can avoid overwriting our files by using the command `>>`. `>>` is known as the "append redirect" and will append new output to the end of a file, rather than overwriting it.
 
@@ -1141,7 +1121,7 @@ grep -B1 -A2 NNNNNNNNNN --no-group-separator ERR4998593_1.fastq >> bad_reads.txt
 
 The output of our second call to `wc` shows that we have not overwritten our original data.
 
-### Redirecting output as input to other program --- the pipe `|` command
+#### Redirecting output as input to other program --- the pipe `|` command
 
 Since we might have multiple different criteria we want to search for, creating a new output file each time has the potential to clutter up our workspace. We also thus far haven't been interested in the actual contents of those files, only in the number of reads that we've found. We created the files to store the reads and then counted the lines in the file to see how many reads matched our criteria. There's a way to do this, however, that doesn't require us to create these intermediate files - the pipe command (`|`).
 
@@ -1167,7 +1147,7 @@ grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq | wc -l
 52
 ```
 
-## Custom `grep` control
+### Custom `grep` control
 
 Use `man grep` to read more about other options to customize the output of `grep` including extended options, anchoring characters, and much more.
 

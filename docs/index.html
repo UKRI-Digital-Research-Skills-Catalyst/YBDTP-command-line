@@ -143,16 +143,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#download-and-unzip-the-course-folder" id="toc-download-and-unzip-the-course-folder" class="nav-link" data-scroll-target="#download-and-unzip-the-course-folder">1. Download and unzip the course folder</a></li>
   <li><a href="#open-your-command-line-interface" id="toc-open-your-command-line-interface" class="nav-link" data-scroll-target="#open-your-command-line-interface">2. Open your command line interface</a></li>
   </ul></li>
-  <li><a href="#what-is-a-file-system" id="toc-what-is-a-file-system" class="nav-link" data-scroll-target="#what-is-a-file-system">What is a file system?</a></li>
+  <li><a href="#part-one-what-is-a-file-system" id="toc-part-one-what-is-a-file-system" class="nav-link" data-scroll-target="#part-one-what-is-a-file-system">Part One: What is a file system?</a>
+  <ul>
   <li><a href="#file-paths" id="toc-file-paths" class="nav-link" data-scroll-target="#file-paths">File paths</a></li>
   <li><a href="#root-and-home-directories" id="toc-root-and-home-directories" class="nav-link" data-scroll-target="#root-and-home-directories">Root and home directories</a></li>
   <li><a href="#absolute-vs-relative-paths" id="toc-absolute-vs-relative-paths" class="nav-link" data-scroll-target="#absolute-vs-relative-paths">Absolute vs relative paths</a></li>
-  <li><a href="#create-a-folder-for-the-course" id="toc-create-a-folder-for-the-course" class="nav-link" data-scroll-target="#create-a-folder-for-the-course">Create a folder for the course</a></li>
-  <li><a href="#what-is-a-shell-and-why-should-i-care" id="toc-what-is-a-shell-and-why-should-i-care" class="nav-link" data-scroll-target="#what-is-a-shell-and-why-should-i-care">What is a shell and why should I care?</a></li>
+  </ul></li>
+  <li><a href="#part-two-what-is-a-shell-and-why-should-i-care" id="toc-part-two-what-is-a-shell-and-why-should-i-care" class="nav-link" data-scroll-target="#part-two-what-is-a-shell-and-why-should-i-care">Part Two: What is a shell and why should I care?</a>
+  <ul>
   <li><a href="#how-to-access-the-shell" id="toc-how-to-access-the-shell" class="nav-link" data-scroll-target="#how-to-access-the-shell">How to access the shell</a></li>
   <li><a href="#navigating-your-file-system" id="toc-navigating-your-file-system" class="nav-link" data-scroll-target="#navigating-your-file-system">Navigating your file system</a></li>
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#shortcut-tab-completion" id="toc-shortcut-tab-completion" class="nav-link" data-scroll-target="#shortcut-tab-completion">Shortcut: Tab Completion</a></li>
   </ul></li>
   <li><a href="#moving-around-the-file-system" id="toc-moving-around-the-file-system" class="nav-link" data-scroll-target="#moving-around-the-file-system">Moving around the file system</a></li>
@@ -161,25 +163,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#navigating-practice" id="toc-navigating-practice" class="nav-link" data-scroll-target="#navigating-practice">Navigating practice</a></li>
   <li><a href="#full-vs.-relative-paths" id="toc-full-vs.-relative-paths" class="nav-link" data-scroll-target="#full-vs.-relative-paths">Full vs.&nbsp;Relative Paths</a></li>
   <li><a href="#relative-path-resolution" id="toc-relative-path-resolution" class="nav-link" data-scroll-target="#relative-path-resolution">Relative path resolution</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#navigational-shortcuts" id="toc-navigational-shortcuts" class="nav-link" data-scroll-target="#navigational-shortcuts">Navigational Shortcuts</a></li>
   </ul></li>
-  <li><a href="#working-with-files" id="toc-working-with-files" class="nav-link" data-scroll-target="#working-with-files">Working with Files</a>
+  </ul></li>
+  <li><a href="#part-three-working-with-files" id="toc-part-three-working-with-files" class="nav-link" data-scroll-target="#part-three-working-with-files">Part Three: Working with Files</a>
   <ul>
   <li><a href="#our-data-set-fastq-files" id="toc-our-data-set-fastq-files" class="nav-link" data-scroll-target="#our-data-set-fastq-files">Our data set: FASTQ files</a></li>
   <li><a href="#wildcards" id="toc-wildcards" class="nav-link" data-scroll-target="#wildcards">Wildcards</a></li>
-  </ul></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise</a></li>
   <li><a href="#command-history" id="toc-command-history" class="nav-link" data-scroll-target="#command-history">Command History</a></li>
   <li><a href="#examining-files-the-less-program" id="toc-examining-files-the-less-program" class="nav-link" data-scroll-target="#examining-files-the-less-program">Examining Files — the <code>less</code> program</a></li>
   <li><a href="#fastq-format" id="toc-fastq-format" class="nav-link" data-scroll-target="#fastq-format">FASTQ format</a></li>
   <li><a href="#phred-score" id="toc-phred-score" class="nav-link" data-scroll-target="#phred-score">PHRED score</a></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#other-programs-to-look-into-files-cat-more-head-and-tail" id="toc-other-programs-to-look-into-files-cat-more-head-and-tail" class="nav-link" data-scroll-target="#other-programs-to-look-into-files-cat-more-head-and-tail">Other programs to look into files: <code>cat</code>, <code>more</code>, <code>head</code>, and <code>tail</code></a></li>
   </ul></li>
   <li><a href="#creating-moving-copying-and-removing-files" id="toc-creating-moving-copying-and-removing-files" class="nav-link" data-scroll-target="#creating-moving-copying-and-removing-files">Creating, moving, copying, and removing files</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#copying-files" id="toc-copying-files" class="nav-link" data-scroll-target="#copying-files">Copying Files</a></li>
   <li><a href="#creating-directories" id="toc-creating-directories" class="nav-link" data-scroll-target="#creating-directories">Creating Directories</a></li>
   <li><a href="#moving-renaming-files-and-directories" id="toc-moving-renaming-files-and-directories" class="nav-link" data-scroll-target="#moving-renaming-files-and-directories">Moving / Renaming files and directories</a></li>
@@ -192,17 +194,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#determining-quality" id="toc-determining-quality" class="nav-link" data-scroll-target="#determining-quality">Determining quality</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise</a></li>
   <li><a href="#redirecting-output" id="toc-redirecting-output" class="nav-link" data-scroll-target="#redirecting-output">Redirecting output</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#redirecting-output-to-a-file-the-command" id="toc-redirecting-output-to-a-file-the-command" class="nav-link" data-scroll-target="#redirecting-output-to-a-file-the-command">Redirecting output to a file — the <code>&gt;</code> command</a></li>
   <li><a href="#counting-number-of-lines-in-files-the-wc-program" id="toc-counting-number-of-lines-in-files-the-wc-program" class="nav-link" data-scroll-target="#counting-number-of-lines-in-files-the-wc-program">Counting number of lines in files — the <code>wc</code> program</a></li>
   </ul></li>
   <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise</a>
-  <ul>
+  <ul class="collapse">
   <li><a href="#the-command-redirects-and-overwrites" id="toc-the-command-redirects-and-overwrites" class="nav-link" data-scroll-target="#the-command-redirects-and-overwrites">The command <code>&gt;</code> redirects and overwrites</a></li>
   <li><a href="#the-command-redirects-and-appends" id="toc-the-command-redirects-and-appends" class="nav-link" data-scroll-target="#the-command-redirects-and-appends">The command <code>&gt;&gt;</code> redirects and appends</a></li>
   <li><a href="#redirecting-output-as-input-to-other-program-the-pipe-command" id="toc-redirecting-output-as-input-to-other-program-the-pipe-command" class="nav-link" data-scroll-target="#redirecting-output-as-input-to-other-program-the-pipe-command">Redirecting output as input to other program — the pipe <code>|</code> command</a></li>
   </ul></li>
   <li><a href="#custom-grep-control" id="toc-custom-grep-control" class="nav-link" data-scroll-target="#custom-grep-control">Custom <code>grep</code> control</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">25 March, 2026</p>
+      <p class="date">26 March, 2026</p>
     </div>
   </div>
   
@@ -233,6 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>#Introduction to Command Line</p>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <p>The first thing we need to do is set up our working files on your computer.</p>
@@ -266,8 +270,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You should now be working inside your course directory.</p>
 </section>
 </section>
-<section id="what-is-a-file-system" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-file-system">What is a file system?</h2>
+<section id="part-one-what-is-a-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="part-one-what-is-a-file-system">Part One: What is a file system?</h2>
 <p>A file system is exactly what it sounds like - a way for your computer to store your data in an organised way using <strong>files</strong>.</p>
 <p>You will definitely have come across <strong>files</strong> before. All the data stored on your computer is split into separate files, making it much easier to keep track of than if it was all in one big blob.</p>
 <p>There are lots of different file types; we can often find out something about what kind of data a file contains by looking at its <strong>filename extension</strong>. For example:</p>
@@ -325,16 +329,15 @@ Exercise
 </div>
 <!-- >| File Explorer (Windows) | <img src="../fig/icon-file-explorer-windows.png" width="50px"> | -->
 <!-- | Finder (Mac) | <img src="../fig/icon-finder-mac.png" width="50px"> | -->
-</section>
-<section id="file-paths" class="level2">
-<h2 class="anchored" data-anchor-id="file-paths">File paths</h2>
+<section id="file-paths" class="level3">
+<h3 class="anchored" data-anchor-id="file-paths">File paths</h3>
 <p>It is not practical to draw out a tree diagram every time we want to refer to a file’s location. Instead, we can represent the information as a <strong>file path</strong>.</p>
 <p>In a <strong>file path</strong>, each directory is represented as a separate component separated by a character such as <code>\</code> or <code>/</code>. It is like writing an address or set of instructions for someone to follow if they want to find a specific file.</p>
 <p>For example, the path for the file called <code>doc3.txt</code> in the file system above looks like this: <code>user1/docs/data/doc3.txt</code> in a Unix or Linux computer.</p>
 <p>It is useful to note that Windows uses backslashes (<code>\</code>) to separate path components, while Unix, Linux and Mac use forward slashes (<code>/</code>).</p>
 </section>
-<section id="root-and-home-directories" class="level2">
-<h2 class="anchored" data-anchor-id="root-and-home-directories">Root and home directories</h2>
+<section id="root-and-home-directories" class="level3">
+<h3 class="anchored" data-anchor-id="root-and-home-directories">Root and home directories</h3>
 <p>The <code>root</code> is the top-level of directories, which contains all other directories further down the tree.</p>
 <p>The root is represented as a <code>/</code> in Unix, Linux, and Mac operating systems.</p>
 <p>In the Windows operating system, the root directory is also known as a drive. In most cases, this will be the <code>C:\</code> drive.</p>
@@ -357,8 +360,8 @@ Exercise
 </ul>
 <p>In Linux (the operating system we will use later in the course), a tilde symbol (<code>~</code>) is used as a shortcut for your home directory. So, for example, the path <code>~/docs/doc2.txt</code> is equivalent to <code>/home/user1/docs/doc2.txt</code>.</p>
 </section>
-<section id="absolute-vs-relative-paths" class="level2">
-<h2 class="anchored" data-anchor-id="absolute-vs-relative-paths">Absolute vs relative paths</h2>
+<section id="absolute-vs-relative-paths" class="level3">
+<h3 class="anchored" data-anchor-id="absolute-vs-relative-paths">Absolute vs relative paths</h3>
 <p>There are two ways of writing a file path - absolute paths and relative paths.</p>
 <p>An absolute path contains the complete list of directories needed to locate a file on your computer. This allows you to reach the file no matter where you are.</p>
 <p>A relative path describes the location of a file relative to your current working directory. For example, if you were already in the folder called <code>docs</code>, the relative path for <code>doc3.txt</code> would be <code>data/doc3.txt</code>. There is no need to give instructions to navigate a route you have already taken.</p>
@@ -400,26 +403,9 @@ Solution
 </div>
 </div>
 </section>
-<section id="create-a-folder-for-the-course" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-folder-for-the-course">Create a folder for the course</h2>
-<p>To keep things tidy and easily accessible, we will create a folder (directory) to keep everything related to this course: the key you will need to log in, your notes, data etc.</p>
-<p>In theory you can make this folder anywhere in your file system but we recommend making it inside your Desktop folder, to make it easy to access.</p>
-<ol type="1">
-<li><p><strong>Create the folder</strong> <code>cloudspan</code> in your <em>Desktop</em>.</p>
-<p>Minimise all windows until you can see your desktop background. Right click and select <em>New</em>, then <em>Folder</em>. Name the folder <code>cloudspan</code>.</p>
-<p>You should see a folder icon appear on your desktop with the label <code>cloudspan</code>.</p>
-<p>Additionally, if you enter your file explorer application you should be able to click on the <em>Desktop</em> directory at the side and see the <code>cloudspan</code> folder.</p></li>
-<li><p><strong>Write down the absolute path</strong> to your <code>cloudspan</code> folder.</p>
-<p>Find out what the absolute path is using your file manager application. Right click on the folder, or in any blank space inside the folder, and then:</p>
-<ul>
-<li><strong>Windows users</strong>: select <em>Properties</em>, then look at the field called <em>Location</em>. Your path will be separated with backslashes (<code>\</code>) but you should write it down using forward slashes (<code>/</code>).</li>
-<li><strong>Mac Users</strong>: select <em>Get info</em>, then look at the field called <em>Where</em>. Your path should start with the word <code>Users/</code> - ignore anything that comes before this. Separate your path components using forward slashes (<code>/</code>).</li>
-</ul>
-<p>Now add the folder name (<code>/cloudspan</code>) to the end of this path. This is your absolute path. Once you have this written down, do not lose it! Now you can find your way back to the <code>cloudspan</code> folder whenever you need to, no matter where you are in your file structure.</p></li>
-</ol>
 </section>
-<section id="what-is-a-shell-and-why-should-i-care" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-a-shell-and-why-should-i-care">What is a shell and why should I care?</h2>
+<section id="part-two-what-is-a-shell-and-why-should-i-care" class="level2">
+<h2 class="anchored" data-anchor-id="part-two-what-is-a-shell-and-why-should-i-care">Part Two: What is a shell and why should I care?</h2>
 <p>A <em>shell</em> is a computer program that has a command line where you type commands to do things on your computer rather than using menus and buttons on a Graphical User Interface (GUI).</p>
 <p>There are many reasons to learn how to use the shell/command line:</p>
 <ul>
@@ -429,9 +415,8 @@ Solution
 <li><strong>Reproducibility</strong> - when using the shell your computer keeps a record of every step that you’ve carried out, which you can use to re-do your work when you need to.</li>
 </ul>
 <p>In this lesson you will learn how to use the command line interface to move around in your file system.</p>
-</section>
-<section id="how-to-access-the-shell" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-access-the-shell">How to access the shell</h2>
+<section id="how-to-access-the-shell" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-access-the-shell">How to access the shell</h3>
 <p>To recap how to access your shell:</p>
 <ul>
 <li><p><strong>Windows users</strong>:</p>
@@ -445,8 +430,8 @@ Solution
 </ul></li>
 </ul>
 </section>
-<section id="navigating-your-file-system" class="level2">
-<h2 class="anchored" data-anchor-id="navigating-your-file-system">Navigating your file system</h2>
+<section id="navigating-your-file-system" class="level3">
+<h3 class="anchored" data-anchor-id="navigating-your-file-system">Navigating your file system</h3>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories.</p>
 <p>Let’s find out where we are by running a command called <code>pwd</code>(which stands for “print working directory”). At any moment, our <strong>current working directory</strong> is our current default directory, i.e., the directory that the computer assumes we want to run commands in,unless we explicitly specify something else. Here, the computer’s response is <code>/home/csuser</code>:</p>
 <div class="code-with-filename">
@@ -520,8 +505,8 @@ Solution
 </div>
 <p><code>man</code> (short for manual) displays detailed documentation (also referred as man page or man file) for <code>bash</code> commands. It is a powerful resource to explore <code>bash</code> commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard’s down arrow or use the <kbd>Space</kbd> key to go forward one page and the <kbd>b</kbd> key to go backwards one page. When you are done reading, hit <kbd>q</kbd> to quit.</p>
 </section>
-<section id="challenge-1" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-1">Challenge</h2>
+<section id="challenge-1" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1">Challenge</h3>
 <p>Use the <code>-l</code> option for the <code>ls</code> command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don’t see with the bare <code>ls</code> command?</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -602,8 +587,8 @@ Solution
 </figure>
 </div>
 <p>First we moved from our home directory at <code>csuser</code> into the <code>cs_course</code> directory, which is one level down. From there we opened up the <code>data</code> directory, which contains subdirectories - <code>illumina_fastq</code> and <code>nano_fastq</code>. We had a peek inside both of these directories and found that <code>illumina_fastq</code> contained two files, while <code>nano_fastq</code> contained one.</p>
-<section id="shortcut-tab-completion" class="level3">
-<h3 class="anchored" data-anchor-id="shortcut-tab-completion">Shortcut: Tab Completion</h3>
+<section id="shortcut-tab-completion" class="level4">
+<h4 class="anchored" data-anchor-id="shortcut-tab-completion">Shortcut: Tab Completion</h4>
 <p>It is very easy to make mistakes typing our filenames and commands. Thankfully, “tab completion” can help us! When you start typing out the name of a directory or file, then hit the <kbd>tab</kbd> key, the shell will try to fill in the rest of the directory or file name.</p>
 <p>First of all, typing <code>cd</code> after the prompt and pressing enter will always take you back to your home directory. Let’s do this:</p>
 <div class="code-with-filename">
@@ -679,8 +664,8 @@ Tip
 </div>
 </section>
 </section>
-<section id="moving-around-the-file-system" class="level2">
-<h2 class="anchored" data-anchor-id="moving-around-the-file-system">Moving around the file system</h2>
+<section id="moving-around-the-file-system" class="level3">
+<h3 class="anchored" data-anchor-id="moving-around-the-file-system">Moving around the file system</h3>
 <p>Now we’re going to learn some additional commands for moving around within our file system.</p>
 <p>Use the commands we’ve learned so far to navigate to the <code>illumina_fastq</code> directory from our home:</p>
 <div class="code-with-filename">
@@ -751,8 +736,8 @@ Tip
 </div>
 <p>This prints the contents of the folder called <code>csuser</code> (our home folder).</p>
 </section>
-<section id="finding-hidden-directories" class="level2">
-<h2 class="anchored" data-anchor-id="finding-hidden-directories">Finding hidden directories</h2>
+<section id="finding-hidden-directories" class="level3">
+<h3 class="anchored" data-anchor-id="finding-hidden-directories">Finding hidden directories</h3>
 <p>There is a hidden directory inside the <code>cs_course</code> directory. Explore the options for <code>ls</code> in the man page to find out how to see hidden directories. List the contents of the directory and identify the name of the text file in the hidden directory.</p>
 <p>Hint 1: hidden files and folders in Unix start with <code>.</code>, for example <code>.my_hidden_directory</code></p>
 <p>Hint 2: <code>cs_course</code> is one level above <code>data</code>, our current working directory.</p>
@@ -821,8 +806,8 @@ Solution
 <div class="sourceCode" id="cb43" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-Fa</span> ls <span class="at">-laF</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="examining-the-contents-of-other-directories" class="level2">
-<h2 class="anchored" data-anchor-id="examining-the-contents-of-other-directories">Examining the contents of other directories</h2>
+<section id="examining-the-contents-of-other-directories" class="level3">
+<h3 class="anchored" data-anchor-id="examining-the-contents-of-other-directories">Examining the contents of other directories</h3>
 <p>In the above section we learned how to use <code>pwd</code> to find our current location within our file system. We also learned how to use <code>cd</code> to change locations and <code>ls</code> to list the contents of a directory.</p>
 <p>By default, the <code>ls</code> commands lists the contents of the working directory (i.e.&nbsp;the directory you are in). You can always find the directory you are in using the <code>pwd</code> command. However, you can also give <code>ls</code> the names of other directories to view. Navigate to your home directory if you are not already there.</p>
 <div class="code-with-filename">
@@ -855,8 +840,8 @@ Solution
 </div>
 <p>This will take you to the <code>data</code> directory without having to go through the intermediate <code>cs_course</code> directory.</p>
 </section>
-<section id="navigating-practice" class="level2">
-<h2 class="anchored" data-anchor-id="navigating-practice">Navigating practice</h2>
+<section id="navigating-practice" class="level3">
+<h3 class="anchored" data-anchor-id="navigating-practice">Navigating practice</h3>
 <p>Navigate to your home directory. From there, list the contents of the <code>illumina_fastq</code> directory.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
@@ -886,8 +871,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="full-vs.-relative-paths" class="level2">
-<h2 class="anchored" data-anchor-id="full-vs.-relative-paths">Full vs.&nbsp;Relative Paths</h2>
+<section id="full-vs.-relative-paths" class="level3">
+<h3 class="anchored" data-anchor-id="full-vs.-relative-paths">Full vs.&nbsp;Relative Paths</h3>
 <p>The <code>cd</code> command takes an argument which is a directory name. Directories can be specified using either a <em>relative</em> path or a full <em>absolute</em> path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the <code>pwd</code> command.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -928,8 +913,8 @@ Solution
 <p>You can usually use either a full path or a relative path depending on what is most convenient. If you want to reach a directory further down the same branch as your current working directory, it’s easiest to use the relative path since it involves less typing. If you’re trying to get to a directory in a different branch, it might be more convenient to use the full path instead of navigating “backwards” and then forwards.</p>
 <p>Over time, it will become easier for you to keep a mental note of the structure of the directories that you are using and how to quickly navigate amongst them. We will be using the same directory structure for this whole course so navigating it should get easier as you progress.</p>
 </section>
-<section id="relative-path-resolution" class="level2">
-<h2 class="anchored" data-anchor-id="relative-path-resolution">Relative path resolution</h2>
+<section id="relative-path-resolution" class="level3">
+<h3 class="anchored" data-anchor-id="relative-path-resolution">Relative path resolution</h3>
 <p>Using the file system diagram below, if <code>pwd</code> displays <code>/home/csuser/cs_course/data/illumina_fastq</code>, what will <code>ls ../nano_fastq</code> display?</p>
 <p>Can you explain why?</p>
 <!-- ![Blank instance file tree.](../fig/blank_instance_file_tree_with_hidden.png){:width="300px"} -->
@@ -961,8 +946,8 @@ Solution
 </div>
 </div>
 </div>
-<section id="navigational-shortcuts" class="level3">
-<h3 class="anchored" data-anchor-id="navigational-shortcuts">Navigational Shortcuts</h3>
+<section id="navigational-shortcuts" class="level4">
+<h4 class="anchored" data-anchor-id="navigational-shortcuts">Navigational Shortcuts</h4>
 <p>The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (<code>/</code>) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in <code>root</code> directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.</p>
 <p>Dealing with your home directory is very common. The tilde character, <code>~</code>, is a shortcut for your home directory. In our case, the <code>root</code> directory is <strong>two</strong> levels above our <code>home</code> directory, so <code>cd</code> or <code>cd ~</code> will take you to<code>/home/csuser</code> and <code>cd /</code> will take you to <code>/</code>.</p>
 <p>Navigate to the <code>illumina_fastq</code> directory:</p>
@@ -989,14 +974,15 @@ Solution
 <p>The commands <code>cd</code>, and <code>cd ~</code> are very useful for quickly navigating back to your home directory. We will be using the <code>~</code> character in later lessons to specify our home directory.</p>
 </section>
 </section>
-<section id="working-with-files" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-files">Working with Files</h2>
-<section id="our-data-set-fastq-files" class="level3">
-<h3 class="anchored" data-anchor-id="our-data-set-fastq-files">Our data set: FASTQ files</h3>
+</section>
+<section id="part-three-working-with-files" class="level2">
+<h2 class="anchored" data-anchor-id="part-three-working-with-files">Part Three: Working with Files</h2>
+<section id="our-data-set-fastq-files" class="level4">
+<h4 class="anchored" data-anchor-id="our-data-set-fastq-files">Our data set: FASTQ files</h4>
 <p>Now that we know how to navigate around our directory structure, let’s start working with our sequencing files. We are looking at the results from a short-read sequencing experiment, which are stored in our <code>illumina_fastq</code> directory.</p>
 </section>
-<section id="wildcards" class="level3">
-<h3 class="anchored" data-anchor-id="wildcards">Wildcards</h3>
+<section id="wildcards" class="level4">
+<h4 class="anchored" data-anchor-id="wildcards">Wildcards</h4>
 <p>Navigate to your <code>illumina_fastq</code> directory:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1047,9 +1033,8 @@ Solution
 </div>
 <p>Lists every file in <code>/usr/bin</code> that ends in the characters <code>.sh</code>. Note that the output displays <strong>full</strong> paths to files, since each result starts with <code>/</code>.</p>
 </section>
-</section>
-<section id="exercise-1" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-1">Exercise</h2>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise</h3>
 <p>What command would you use for each of the following tasks? Start from your current directory using a single<code>ls</code>command for each:</p>
 <ol type="1">
 <li>List all of the files in <code>/usr/bin</code> that start with the letter ‘c’.</li>
@@ -1082,8 +1067,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="command-history" class="level2">
-<h2 class="anchored" data-anchor-id="command-history">Command History</h2>
+<section id="command-history" class="level3">
+<h3 class="anchored" data-anchor-id="command-history">Command History</h3>
 <p>If you want to repeat a command that you’ve run recently, you can access previous commands using the up arrow on your keyboard to go back to the most recent command. Likewise, the down arrow takes you forward in the command history.</p>
 <p>You can also review your recent commands with the <code>history</code> command, by entering:</p>
 <div class="code-with-filename">
@@ -1109,8 +1094,8 @@ Solution
 </div>
 <p>Type <code>!</code> (exclamation point) and then the number of the command from your history. You will be glad you learned this when you need to re-run very complicated commands. For more information on advanced usage of <code>history</code>, read section 9.3 of <a href="https://www.gnu.org/software/bash/manual/html_node/index.html">Bash manual</a>.</p>
 </section>
-<section id="examining-files-the-less-program" class="level2">
-<h2 class="anchored" data-anchor-id="examining-files-the-less-program">Examining Files — the <code>less</code> program</h2>
+<section id="examining-files-the-less-program" class="level3">
+<h3 class="anchored" data-anchor-id="examining-files-the-less-program">Examining Files — the <code>less</code> program</h3>
 <p>We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?</p>
 <p>One way to examine a file is to open the file in a read-only format and navigate through it using a program called <code>less</code>. The commands for navigating <code>less</code> are the same as the <code>man</code> program:</p>
 <table class="caption-top table">
@@ -1151,8 +1136,8 @@ Solution
 <div class="sourceCode" id="cb69" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/cs_course/data/illumina_fastq less ERR4998593_1.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="fastq-format" class="level2">
-<h2 class="anchored" data-anchor-id="fastq-format">FASTQ format</h2>
+<section id="fastq-format" class="level3">
+<h3 class="anchored" data-anchor-id="fastq-format">FASTQ format</h3>
 <p>The contents might look a bit confusing. That’s because they are in FASTQ format, a popular way to store sequencing data in text-based format. These files contain both sequences and information about each sequence’s read accuracy.</p>
 <!-- ![](../fig/fasta_file_format_l2.png){:width="600px"} -->
 <p><a href=".\images/fastq_file_format.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src=".\images/fastq_file_format.png" class="img-fluid" width="600"></a></p>
@@ -1188,13 +1173,13 @@ Solution
 </tbody>
 </table>
 </section>
-<section id="phred-score" class="level2">
-<h2 class="anchored" data-anchor-id="phred-score">PHRED score</h2>
+<section id="phred-score" class="level3">
+<h3 class="anchored" data-anchor-id="phred-score">PHRED score</h3>
 <pre class="text"><code>Quality encoding: !"#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJ                   |         |         |         |         | Quality score:    01........11........21........31........41   </code></pre>
 <p>Quality is interpreted as the probability of an incorrect base call. To make it possible to line up each individual nucleotide with its quality score, the numerical score is encoded by a single character. The quality score represents the probability that the corresponding nucleotide call is incorrect. It is a logarithmic scale so a quality score of 10 reflects a base call accuracy of 90%, but a quality score of 20 reflects a base call accuracy of 99%.</p>
 </section>
-<section id="exercise-2" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-2">Exercise</h2>
+<section id="exercise-2" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise</h3>
 <ol type="1">
 <li>Open the <code>~/cs_course/data/illumina_fastq/ERR4998593_1.fastq</code> file in <code>less</code>. What is the last line of the file? (Hint: use the shortcuts above to speed things up)</li>
 </ol>
@@ -1219,8 +1204,8 @@ Solution
 </div>
 </div>
 </div>
-<section id="other-programs-to-look-into-files-cat-more-head-and-tail" class="level3">
-<h3 class="anchored" data-anchor-id="other-programs-to-look-into-files-cat-more-head-and-tail">Other programs to look into files: <code>cat</code>, <code>more</code>, <code>head</code>, and <code>tail</code></h3>
+<section id="other-programs-to-look-into-files-cat-more-head-and-tail" class="level4">
+<h4 class="anchored" data-anchor-id="other-programs-to-look-into-files-cat-more-head-and-tail">Other programs to look into files: <code>cat</code>, <code>more</code>, <code>head</code>, and <code>tail</code></h4>
 <p>Another way to look at files is using the command <code>cat</code>. This command prints out the entire contents of the file to the console. In large files, like the ones we’re working with today, this can take a long time and should generally be avoided. For small files, it can be a useful tool.</p>
 <p>The <code>more</code> command prints to the console only as much content of a file as it fits in the screen, and waits for you to press the space bar to print the following portion of the file likweise, and so on until either the last portion of the file is printed or you press the <code>q</code> key (for quit) to exit <code>more</code>.</p>
 <p>There’s another final way that we can look at files, and in this case, just look at part of them. This can be particularly useful if we just want to see the beginning or end of the file, or see how it’s formatted.</p>
@@ -1276,12 +1261,12 @@ Solution
 </div>
 </section>
 </section>
-<section id="creating-moving-copying-and-removing-files" class="level2">
-<h2 class="anchored" data-anchor-id="creating-moving-copying-and-removing-files">Creating, moving, copying, and removing files</h2>
+<section id="creating-moving-copying-and-removing-files" class="level3">
+<h3 class="anchored" data-anchor-id="creating-moving-copying-and-removing-files">Creating, moving, copying, and removing files</h3>
 <p>Now we can move around in the file structure, look at files, and search files. But what if we want to copy files or move them around or get rid of them? Most of the time, you can do these sorts of file manipulations without the command line, but there will be some cases (like when you’re working with a remote computer like we are for this lesson) where it will be impossible. You’ll also find that you may be working with hundreds of files and want to do similar manipulations to all of those files. In cases like this, it’s much faster to do these operations at the command line.</p>
 <p>We’ll continue looking at our large Illumina sequencing files for the next part of the lesson.</p>
-<section id="copying-files" class="level3">
-<h3 class="anchored" data-anchor-id="copying-files">Copying Files</h3>
+<section id="copying-files" class="level4">
+<h4 class="anchored" data-anchor-id="copying-files">Copying Files</h4>
 <p>When working with computational data, it’s important to keep a safe copy of that data that can’t be accidentally overwritten or deleted. For this lesson, our raw data is our FASTQ files.</p>
 <p>First, let’s make a copy of one of our FASTQ files using the <code>cp</code> command.</p>
 <p>Navigate to the <code>cs_course/data/illumina_fastq</code> directory and enter:</p>
@@ -1300,8 +1285,8 @@ Solution
 <p>The prompt will disappear for up to two minutes and reappear when the command is completed and the backup is made.</p>
 <p>We now have two copies of the <code>ERR4998593_1.fastq</code> file, one of them named <code>ERR4998593_1_copy.fastq</code>. We’ll move this file to a new directory called <code>backup</code> where we’ll store our backup data files.</p>
 </section>
-<section id="creating-directories" class="level3">
-<h3 class="anchored" data-anchor-id="creating-directories">Creating Directories</h3>
+<section id="creating-directories" class="level4">
+<h4 class="anchored" data-anchor-id="creating-directories">Creating Directories</h4>
 <p>The <code>mkdir</code> command is used to make a directory. Enter <code>mkdir</code>followed by a space, then the directory name you want to create:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1310,8 +1295,8 @@ Solution
 <div class="sourceCode" id="cb82" data-filename="Code"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> backup</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="moving-renaming-files-and-directories" class="level3">
-<h3 class="anchored" data-anchor-id="moving-renaming-files-and-directories">Moving / Renaming files and directories</h3>
+<section id="moving-renaming-files-and-directories" class="level4">
+<h4 class="anchored" data-anchor-id="moving-renaming-files-and-directories">Moving / Renaming files and directories</h4>
 <p>We can now move our backup file to this directory. We can move files around using the command <code>mv</code>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1339,8 +1324,8 @@ Solution
 <div class="sourceCode" id="cb86" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>ERR4998593_1_backup.fastq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="removing-files-and-directories" class="level3">
-<h3 class="anchored" data-anchor-id="removing-files-and-directories">Removing files and directories</h3>
+<section id="removing-files-and-directories" class="level4">
+<h4 class="anchored" data-anchor-id="removing-files-and-directories">Removing files and directories</h4>
 <p>You can delete or remove files with the <code>rm</code> command:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1359,8 +1344,8 @@ Solution
 <p>This will delete not only the directory, but all files within the directory.</p>
 </section>
 </section>
-<section id="exercise-3" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-3">Exercise</h2>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise</h3>
 <p>Starting in the <code>illumina_fastq</code> directory, do the following:</p>
 <ol type="1">
 <li>Make sure that you have deleted your backup directory and all files it contains.</li>
@@ -1369,8 +1354,8 @@ Solution
 <li>It doesn’t make sense to keep our backup directory inside the directory it is backing up. What if we accidentally delete the <code>illumina_fastq</code> directory? To fix this, move your new backup directory out of <code>illumina_fastq</code> and into the parent folder, <code>data</code>.</li>
 </ol>
 </section>
-<section id="solution-7" class="level2">
-<h2 class="anchored" data-anchor-id="solution-7">Solution</h2>
+<section id="solution-7" class="level3">
+<h3 class="anchored" data-anchor-id="solution-7">Solution</h3>
 <ol type="1">
 <li><code>rm -r backup</code></li>
 <li><code>cp ERR4998593_1.fastq ERR4998593_1_backup.fastq</code> and <code>cp ERR4998593_2.fastq ERR4998593_2_backup.fastq</code></li>
@@ -1392,12 +1377,12 @@ Solution
 </figure>
 </div>
 </section>
-<section id="searching-files" class="level2">
-<h2 class="anchored" data-anchor-id="searching-files">Searching files</h2>
+<section id="searching-files" class="level3">
+<h3 class="anchored" data-anchor-id="searching-files">Searching files</h3>
 <p>We discussed in a previous episode how to search within a file using <code>less</code>. We can also search within files without even opening them, using <code>grep</code>. <code>grep</code> is a command-line utility for searching plain-text files for lines matching a specific set of characters (sometimes called a string) or a particular pattern (which can be specified using something called regular expressions). We’re not going to work with regular expressions in this lesson, and are instead going to specify the strings we are searching for. Let’s give it a try!</p>
 </section>
-<section id="nucleotide-abbreviations" class="level2">
-<h2 class="anchored" data-anchor-id="nucleotide-abbreviations">Nucleotide abbreviations</h2>
+<section id="nucleotide-abbreviations" class="level3">
+<h3 class="anchored" data-anchor-id="nucleotide-abbreviations">Nucleotide abbreviations</h3>
 <p>The four nucleotides that appear in DNA are abbreviated <code>A</code>, <code>C</code>, <code>T</code> and <code>G</code>. Unknown nucleotides are represented with the letter <code>N</code>. An <code>N</code> appearing in a sequencing file represents a position where the sequencing machine was not able to confidently determine the nucleotide in that position. You can think of an <code>N</code> as being aNy nucleotide at that position in the DNA sequence.</p>
 <p>We’ll search for strings inside of our fastq files. Let’s first make sure we are in the correct directory:</p>
 <div class="code-with-filename">
@@ -1408,8 +1393,8 @@ Solution
 </div>
 <p>However, suppose we want to see how many reads in our file have bad segments containing three or more unclassified nucleotides (N) in a row.</p>
 </section>
-<section id="determining-quality" class="level2">
-<h2 class="anchored" data-anchor-id="determining-quality">Determining quality</h2>
+<section id="determining-quality" class="level3">
+<h3 class="anchored" data-anchor-id="determining-quality">Determining quality</h3>
 <p>In this lesson, we’re going to be manually searching for strings of bases within our sequence results to illustrate some principles of file searching. It can be really useful to do this type of searching to get a feel for the quality of your sequencing results, however, in your research you will most likely use a bioinformatics tool that has a built-in program for filtering out low-quality reads. You’ll learn how to use one such tool in <a href=".\docs/lesson03-qc-assembly/">a later lesson</a>. <!-- https://cloud-span.github.io/nerc-metagenomics03-qc-assembly/02-QC-quality-raw-reads/index.html). --></p>
 <p>To search files we use a new command called <code>grep</code>. The name “grep” comes from an abbreviation of <strong>g</strong>lobal <strong>r</strong>egular <strong>e</strong>xpression <strong>p</strong>rint.</p>
 <p>Let’s search for the string NNN in the ERR4998593_1 file:</p>
@@ -1458,8 +1443,8 @@ Hint
 <div class="sourceCode" id="cb93" data-filename="Output"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>@ERR4998593.50651366 50651366 length=151 TCCTTGCGGAGCCGGGCATGCAGGNCCTGCAGGTAGNGGCGGCGGCAGGNGCCGCCGCCGTCTACCACGGTGTANCGNNCNANNNNNCANTCATCGACGGNNGGTGNGACNNCTGCGATCTTGCGNCGCCTGGTCTNGCGGCCATCCTCTN + FFF,FFFFFFFF:,,F:F,FFFFF#,:F,FFFF:F,#,FFFFF::FF:,#FFFFFFFFF:F,FF,FFFF,F,FF#,F##:#:#####:F#FFFFFFF,FF##:FFF#F:F##FFF,FFFFFF,,,#FF:F:,FFFF#F:::F:FFF:FF,#</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercise-4" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4">Exercise</h2>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise</h3>
 <ol type="1">
 <li><p>Search for the sequence <code>AAAACCCCGGGGTTTT</code> in the <code>ERR4998593_1.fastq</code> file. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. What is the output?</p></li>
 <li><p>Search for the sequence <code>AACCGGTTAACCGGTT</code> in both FASTQ files. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. How many matching sequences do you get? (this may take up to 4 minutes to complete so be patient!)</p></li>
@@ -1498,12 +1483,12 @@ Solution
 </div>
 </div>
 </section>
-<section id="redirecting-output" class="level2">
-<h2 class="anchored" data-anchor-id="redirecting-output">Redirecting output</h2>
+<section id="redirecting-output" class="level3">
+<h3 class="anchored" data-anchor-id="redirecting-output">Redirecting output</h3>
 <p><code>grep</code> allowed us to identify sequences in our FASTQ files that match a particular pattern. All of these sequences were printed to our terminal screen, but in order to work with these sequences and perform other operations on them, we will need to capture that output in some way.</p>
 <p>We can do this with something called “redirection”. The idea is that we are taking what would ordinarily be printed to the terminal screen and redirecting it to another location. In our case, we want to print this information to a file so that we can look at it later and use other commands to analyse this data.</p>
-<section id="redirecting-output-to-a-file-the-command" class="level3">
-<h3 class="anchored" data-anchor-id="redirecting-output-to-a-file-the-command">Redirecting output to a file — the <code>&gt;</code> command</h3>
+<section id="redirecting-output-to-a-file-the-command" class="level4">
+<h4 class="anchored" data-anchor-id="redirecting-output-to-a-file-the-command">Redirecting output to a file — the <code>&gt;</code> command</h4>
 <p>The command for redirecting output to a file is <code>&gt;</code>.</p>
 <p>Let’s try out this command and copy all the records (including all four lines of each record) in our FASTQ files that contain ‘NNN’ to another file called <code>bad_reads.txt</code>. The new flag <code>--no-group-separator</code> stops grep from putting a dashed line (–) between matches. The reason this is necessary will become apparent shortly.</p>
 <div class="code-with-filename">
@@ -1530,8 +1515,8 @@ File extensions
 </div>
 </div>
 </section>
-<section id="counting-number-of-lines-in-files-the-wc-program" class="level3">
-<h3 class="anchored" data-anchor-id="counting-number-of-lines-in-files-the-wc-program">Counting number of lines in files — the <code>wc</code> program</h3>
+<section id="counting-number-of-lines-in-files-the-wc-program" class="level4">
+<h4 class="anchored" data-anchor-id="counting-number-of-lines-in-files-the-wc-program">Counting number of lines in files — the <code>wc</code> program</h4>
 <p>We can check the number of lines in our new file using a command called <code>wc</code>. <code>wc</code> stands for <strong>word count</strong>. This command counts the number of words, lines, and characters in a file.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1561,8 +1546,8 @@ File extensions
 <p>The <code>--no-group-separator</code> flag used above prevents grep from adding unnecessary extra lines to the file which would alter the number of lines present.</p>
 </section>
 </section>
-<section id="exercise-5" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-5">Exercise</h2>
+<section id="exercise-5" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise</h3>
 <ol type="1">
 <li>How many sequences are there in <code>ERR4998593_1.fastq</code>? Remember that every sequence is formed by four lines.</li>
 <li>How many sequences in <code>ERR4998593_1.fastq</code> contain at least 5 consecutive Ns?</li>
@@ -1613,8 +1598,8 @@ Solution
 </div>
 </div>
 </div>
-<section id="the-command-redirects-and-overwrites" class="level3">
-<h3 class="anchored" data-anchor-id="the-command-redirects-and-overwrites">The command <code>&gt;</code> redirects and overwrites</h3>
+<section id="the-command-redirects-and-overwrites" class="level4">
+<h4 class="anchored" data-anchor-id="the-command-redirects-and-overwrites">The command <code>&gt;</code> redirects and overwrites</h4>
 <p>We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the <code>&gt;</code> command to redirect output to a file, the new output will replace the output that was already present in the file. This is called “overwriting” and, just like you don’t want to overwrite your video recording of your kid’s first birthday party, you also want to avoid overwriting your data files.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1642,8 +1627,8 @@ Solution
 </div>
 <p>Here, the output of our second call to <code>wc</code> shows that we no longer have any lines in our <code>bad_reads.txt</code> file. This is because the second string we searched (<code>NNNNNNNNNN</code>) does not match any strings in the file. So our file was overwritten and is now empty.</p>
 </section>
-<section id="the-command-redirects-and-appends" class="level3">
-<h3 class="anchored" data-anchor-id="the-command-redirects-and-appends">The command <code>&gt;&gt;</code> redirects and appends</h3>
+<section id="the-command-redirects-and-appends" class="level4">
+<h4 class="anchored" data-anchor-id="the-command-redirects-and-appends">The command <code>&gt;&gt;</code> redirects and appends</h4>
 <p>We can avoid overwriting our files by using the command <code>&gt;&gt;</code>. <code>&gt;&gt;</code> is known as the “append redirect” and will append new output to the end of a file, rather than overwriting it.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
@@ -1671,8 +1656,8 @@ Solution
 </div>
 <p>The output of our second call to <code>wc</code> shows that we have not overwritten our original data.</p>
 </section>
-<section id="redirecting-output-as-input-to-other-program-the-pipe-command" class="level3">
-<h3 class="anchored" data-anchor-id="redirecting-output-as-input-to-other-program-the-pipe-command">Redirecting output as input to other program — the pipe <code>|</code> command</h3>
+<section id="redirecting-output-as-input-to-other-program-the-pipe-command" class="level4">
+<h4 class="anchored" data-anchor-id="redirecting-output-as-input-to-other-program-the-pipe-command">Redirecting output as input to other program — the pipe <code>|</code> command</h4>
 <p>Since we might have multiple different criteria we want to search for, creating a new output file each time has the potential to clutter up our workspace. We also thus far haven’t been interested in the actual contents of those files, only in the number of reads that we’ve found. We created the files to store the reads and then counted the lines in the file to see how many reads matched our criteria. There’s a way to do this, however, that doesn’t require us to create these intermediate files - the pipe command (<code>|</code>).</p>
 <p>This is probably not a key on your keyboard you use very much, so let’s all take a minute to find that key. For the standard QWERTY keyboard layout, the <code>|</code> character can be found using the key combination</p>
 <ul>
@@ -1701,14 +1686,15 @@ Solution
 </div>
 </section>
 </section>
-<section id="custom-grep-control" class="level2">
-<h2 class="anchored" data-anchor-id="custom-grep-control">Custom <code>grep</code> control</h2>
+<section id="custom-grep-control" class="level3">
+<h3 class="anchored" data-anchor-id="custom-grep-control">Custom <code>grep</code> control</h3>
 <p>Use <code>man grep</code> to read more about other options to customize the output of <code>grep</code> including extended options, anchoring characters, and much more.</p>
 <p>Redirecting output is often not intuitive, and can take some time to get used to. Once you’re comfortable with redirection, however, you’ll be able to combine any number of commands to do all sorts of exciting things with your data!</p>
 <p>We’ll be using the redirect <code>&gt;</code> and pipe <code>|</code> later in the course as part of our analysis workflow, so you will get lots of practice using them.</p>
 <p>None of the command line programs we’ve been learning do anything all that impressive on their own, but when you start chaining them together, you can do some really powerful things very efficiently.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
