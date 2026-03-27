@@ -4,13 +4,13 @@ Welcome to the UKRI Digital Research Skills Catalyst introductory guide to the c
 
 This short 90 minute tutorial will provide the basics of everything you need to know to start using the command line, including:
 
-- What is a file system?
+-   What is a file system?
 
-- What is the shell?
+-   What is the shell?
 
-- How can I use the shell commands to navigate the file system?
+-   How can I use the shell commands to navigate the file system?
 
-- How can I use the shell commands to use software and manipulate data?
+-   How can I use the shell commands to use software and manipulate data?
 
 Before we begin there is a brief setup required, as detailed below:
 
@@ -19,6 +19,8 @@ Before we begin there is a brief setup required, as detailed below:
 The first thing we need to do is set up our working files on your computer.
 
 ### 1. Download and unzip the course folder
+
+[📂](https://emojipedia.org/open-file-folder)[Click here to download the zipped course folder.](csuser.zip)
 
 Download the provided course folder to your computer. This folder contains all the files and directories you will need for the exercises.
 
@@ -38,7 +40,7 @@ Next, open the command line (also known as the terminal or shell) and navigate t
 
 **Windows users:**
 
--    Open the folder in File Explorer
+-   Open the folder in File Explorer
 
 -   Right-click inside the folder
 
@@ -46,7 +48,7 @@ Next, open the command line (also known as the terminal or shell) and navigate t
 
 **Mac users:**
 
--    Open Terminal
+-   Open Terminal
 
 -   Type `cd` (with a space after it)
 
@@ -162,7 +164,6 @@ Use the file system above to answer these questions.
 2.  The relative path is `doc2.txt` (as you are already in the directory where `doc2.txt` is stored).
 :::
 ::::
-
 
 ## Part Two: What is a shell and why should I care?
 
@@ -315,7 +316,7 @@ Learning to navigate a new file directory can be confusing at first. To help, he
 
 <!-- ![A file hierarchy tree](../fig/blank_instance_file_tree.png){:width="400px"} -->
 
-![A file hierarchy tree.](/images/blank_instance_file_tree.png){alt="A file hierarchy tree." width="350px" fig-alt="A file hierarchy tree."}
+![A file hierarchy tree.](/images/blank_instance_file_tree.png){width="350px" fig-alt="A file hierarchy tree."}
 
 First we moved from our home directory at `csuser` into the `cs_course` directory, which is one level down. From there we opened up the `data` directory, which contains subdirectories - `illumina_fastq` and `nano_fastq`. We had a peek inside both of these directories and found that `illumina_fastq` contained two files, while `nano_fastq` contained one.
 
@@ -593,7 +594,7 @@ Can you explain why?
 
 <!-- ![Blank instance file tree.](../fig/blank_instance_file_tree_with_hidden.png){:width="300px"} -->
 
-![Instance file tree.](/images/blank_instance_file_tree_with_hidden.png){alt="Instance file tree." width="400px" fig-alt="Blank instance file tree."}
+![Instance file tree.](/images/blank_instance_file_tree_with_hidden.png){width="400px" fig-alt="Blank instance file tree."}
 
 ::: {.callout-caution collapse="true"}
 ### Solution
@@ -762,7 +763,7 @@ The contents might look a bit confusing. That's because they are in FASTQ format
 Each sequence is described in four lines:
 
 | Line | Description |
-|---------------|---------------------------------------------------------|
+|-----------------|-------------------------------------------------------|
 | 1 | Always begins with '\@' and gives the sequence identifier and an optional description |
 | 2 | The actual DNA sequence |
 | 3 | Always begins with a '+' and sometimes the same info in line 1 |
@@ -930,7 +931,7 @@ It's always a good idea to check your work. Move to the `data` folder with `cd .
 
 Here is what your file structure should look like at the end of this episode: <!-- ![A file hierarchy tree](../fig/file_tree_02_ep2.png){:width="500px"} -->
 
-![A file hierarchy tree.](/images/file_tree_02_ep2.png){alt="A file hierarchy tree." width="450px" fig-alt="A file hierarchy tree."}
+![A file hierarchy tree.](/images/file_tree_02_ep2.png){width="450px" fig-alt="A file hierarchy tree."}
 
 ### Searching files
 
@@ -967,7 +968,7 @@ We may be interested not only in the actual sequence which contains this string,
 ::: {.callout-caution collapse="true"}
 ### Hint
 
-![.](/images/fasta_file_format_l2.png){alt="." width="450px"}
+![.](/images/fasta_file_format_l2.png){width="450px"}
 :::
 
 To get all of the information about each read, we will return the line immediately before each match and the two lines immediately after each match.
