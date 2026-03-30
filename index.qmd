@@ -20,7 +20,7 @@ The first thing we need to do is set up our working files on your computer.
 
 ### 1. Download and unzip the course folder
 
-[📂](https://emojipedia.org/open-file-folder)[Click here to download the zipped course folder.](csuser.zip)
+[📂](https://emojipedia.org/open-file-folder)[Click here to download the zipped course folder.](ybcmd.zip)
 
 Download the provided course folder to your computer. This folder contains all the files and directories you will need for the exercises.
 
@@ -184,13 +184,13 @@ To recap how to access your shell:
 
 -   **Windows users**:
 
-    -   Right click anywhere inside the blank space of the file manager, then select **Git Bash Here**. A new window will open - this is your command line interface, also known as the shell or the terminal. It will automatically open with your `cloudspan` directory as the working directory.
+    -   Right click anywhere inside the blank space of the file manager, then select **Git Bash Here**. A new window will open - this is your command line interface, also known as the shell or the terminal. It will automatically open with your `ybcmd` directory as the working directory.
 
 -   **Mac users**, you have two options:
 
-    -   EITHER: Open **Terminal** in one window and type `cd` followed by a space. Do not press enter! Now open **Finder** in another window. Drag and drop the `cloudspan` folder from the Finder to the Terminal. You should see the file path leading to your `cloudspan` folder appear. Now press enter to navigate to the folder.
+    -   EITHER: Open **Terminal** in one window and type `cd` followed by a space. Do not press enter! Now open **Finder** in another window. Drag and drop the `ybcmd` folder from the Finder to the Terminal. You should see the file path leading to your `ybcmd` folder appear. Now press enter to navigate to the folder.
 
-    -   OR: Open **Terminal** and type `cd` followed by the absolute path that leads to your `cloudspan` folder. Press enter.
+    -   OR: Open **Terminal** and type `cd` followed by the absolute path that leads to your `ybcmd` folder. Press enter.
 
 ### Navigating your file system
 
@@ -203,10 +203,10 @@ pwd
 ```
 
 ``` {.default filename="Output"}
-/home/csuser
+/c/Users/jpm513/Desktop/ybcmd
 ```
 
-This `csuser` directory is our **home directory** within our cloud system.
+This `ybcmd` directory is our **working directory** within our folder system.
 
 Let's look at how our file system is organised. We can see what files and subdirectories are in this directory by running `ls`, which stands for "listing":
 
@@ -215,7 +215,7 @@ ls
 ```
 
 ``` {.default filename="Output"}
-bin  cs_course  software
+bin/  cs_course/  software/
 ```
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We'll be working within the `cs_course` subdirectory, and creating new subdirectories, throughout this workshop.
@@ -235,7 +235,7 @@ ls
 ```
 
 ``` {.default filename="Output"}
-data   databases
+data/   databases/
 ```
 
 We can make the `ls` output easier to understand by using the **flag** `-F`, which tells `ls` to add a trailing `/` to the names of directories:
@@ -270,7 +270,9 @@ ls -l
 ```
 
 ``` {.default filename="Output"}
-total 12 drwxrwxr-x 4 csuser csuser 4096 Oct 22 09:04 data drwxrwxr-x 3 csuser csuser 4096 Oct  6 13:08 databases
+total 0
+drwxr-xr-x 1 ITSYORK+jpm513 4096 0 Mar 30 09:30 data/
+drwxr-xr-x 1 ITSYORK+jpm513 4096 0 Mar 30 09:30 databases/
 ```
 
 The additional information given includes the name of the owner of the file, when the file was last modified, and whether the current user has permission to read and write to the file.
@@ -281,7 +283,8 @@ No one can possibly learn all of these arguments - that's what the manual page i
 Let's go into the `data` directory and see what is in there using the `cd` and `ls` commands.
 
 ``` {.bash filename="Code"}
-cd data ls -F
+cd data 
+ls -F
 ```
 
 ``` {.default filename="Output"}
@@ -328,6 +331,12 @@ First of all, typing `cd` after the prompt and pressing enter will always take y
 
 ``` {.bash filename="Code"}
 cd
+```
+
+then type:
+
+``` {.bash filename="Code"}
+cd Desktop/ybcmd/
 ```
 
 then type:
@@ -391,7 +400,12 @@ Now we're going to learn some additional commands for moving around within our f
 Use the commands we've learned so far to navigate to the `illumina_fastq` directory from our home:
 
 ``` {.bash filename="Code"}
-cd cd cs_course cd data cd illumina_fastq
+cd 
+cd Desktop
+cd ybcmd
+cd cs_course 
+cd data 
+cd illumina_fastq
 ```
 
 What if we want to move back up and out of this directory and to our top level directory? Can we type `cd data`? Try it and see what happens.
@@ -419,7 +433,7 @@ pwd
 ```
 
 ``` {.default filename="Output"}
-/home/csuser/cs_course/data
+/c/Users/jpm513/Desktop/ybcmd/cs_course/data
 ```
 
 ``` {.bash filename="Code"}
@@ -427,7 +441,7 @@ ls
 ```
 
 ``` {.default filename="Output"}
-illumina_fastq  nano_fastq
+illumina_fastq/  nano_fastq/
 ```
 
 From this output, we can see that `..` did indeed take us back one level in our file system, to `data`.
@@ -470,13 +484,14 @@ ls -a ..
 ```
 
 ``` {.default filename="Output"}
-.  ..   data   databases   .hidden
+./  ../  .hidden/  data/  databases/
 ```
 
 The name of the hidden directory is `.hidden`. We can navigate to that directory using `cd`.
 
 ``` {.bash filename="Code"}
-cd .. cd .hidden
+cd .. 
+cd .hidden
 ```
 
 And then list the contents of the directory using `ls`.
@@ -495,7 +510,8 @@ The name of the text file is `youfoundit.txt`.
 In most commands the flags can be combined together in no particular order to obtain the desired results/output.
 
 ``` {.bash filename="Code"}
-ls -Fa ls -laF
+ls -Fa 
+ls -laF
 ```
 
 ### Examining the contents of other directories
@@ -506,6 +522,7 @@ By default, the `ls` commands lists the contents of the working directory (i.e. 
 
 ``` {.bash filename="Code"}
 cd
+cd Desktop/ybcmd/
 ```
 
 Then enter the command:
@@ -515,7 +532,7 @@ ls cs_course
 ```
 
 ``` {.default filename="Output"}
-data   databases
+data/   databases/
 ```
 
 This will list the contents of the `cs_course` directory without you needing to navigate there.
@@ -525,7 +542,8 @@ The `cd` command works in a similar way.
 Try entering:
 
 ``` {.bash filename="Code"}
-cd cd cs_course/data/
+cd 
+cd ~/Desktop/ybcmd/cs_course/data/
 ```
 
 This will take you to the `data` directory without having to go through the intermediate `cs_course` directory.
@@ -538,7 +556,8 @@ Navigate to your home directory. From there, list the contents of the `illumina_
 ### Solution
 
 ``` {.bash filename="Code"}
-cd ls cs_course/data/illumina_fastq
+cd 
+ls ~/Desktop/ybcmd/cs_course/data/illumina_fastq
 ```
 
 ``` {.default filename="Output"}
@@ -551,21 +570,22 @@ ERR4998593_1.fastq  ERR4998593_2.fastq
 The `cd` command takes an argument which is a directory name. Directories can be specified using either a *relative* path or a full *absolute* path. The directories on the computer are arranged into a hierarchy. The full path tells you where a directory is in that hierarchy. Navigate to the home directory, then enter the `pwd` command.
 
 ``` {.bash filename="Code"}
-cd   pwd  
+cd   
+pwd  
 ```
 
 You will see:
 
 ``` {.default filename="Output"}
-/home/csuser
+/c/Users/jpm513
 ```
 
-This is the full name of your home directory. This tells you that you are in a directory called `csuser`, which sits inside a directory called `home` which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `/` which is usually referred to as the *root directory*. So, to summarize: `csuser` is a directory in `home` which is a directory in `/`. More on `root` and `home` in the next section.
+This is the full name of your home directory. This tells you that you are in a directory called the same as your username, which sits inside a directory called `Users` which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called `C` which is usually referred to as the *root directory*.
 
 Now enter the following command:
 
 ``` {.bash filename="Code"}
-cd /home/csuser/cs_course/.hidden
+cd ~/Desktop/ybcmd/cs_course/.hidden
 ```
 
 This jumps forward multiple levels to the `.hidden` directory. Now go back to the home directory.
@@ -577,7 +597,7 @@ cd
 You can also navigate to the `.hidden` directory using:
 
 ``` {.bash filename="Code"}
-cd cs_course/.hidden
+cd Desktop/ybcmd/cs_course/.hidden
 ```
 
 These two commands have the same effect - they both take us to the `.hidden` directory. The first uses the absolute path, giving the full address from the root directory `/`. The second uses a relative path, giving only the address from the working directory. A absolute (full) path always starts with a `/`. A relative path does not.
@@ -608,14 +628,15 @@ The command `ls ..` moves us up a folder level before we list the contents of `n
 
 #### Navigational Shortcuts
 
-The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`/`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.
+The root directory is the highest level directory in your file system and contains files that are important for your computer to perform its daily work. While you will be using the root (`C`) at the beginning of your absolute paths, it is important that you avoid working with data in these higher-level directories, as your commands can permanently alter files that the operating system needs to function. In many cases, trying to run commands in `root` directories will require special permissions which are not discussed here, so it’s best to avoid them and work within your home directory.
 
-Dealing with your home directory is very common. The tilde character, `~`, is a shortcut for your home directory. In our case, the `root` directory is **two** levels above our `home` directory, so `cd` or `cd ~` will take you to`/home/csuser` and `cd /` will take you to `/`.
+Dealing with your home directory is very common. The tilde character, `~`, is a shortcut for your home directory. In our case, the `root` directory is **two** levels above our `home` directory, so `cd` or `cd ~` will take you to`c/Users/<username>` and `cd /c/` will take you to `c`.
 
 Navigate to the `illumina_fastq` directory:
 
 ``` {.bash filename="Code"}
-cd cd cs_course/data/illumina_fastq
+cd 
+cd ~/Desktop/ybcmd/cs_course/data/illumina_fastq
 ```
 
 Then enter the command:
@@ -625,7 +646,44 @@ ls ~
 ```
 
 ``` {.default filename="Output"}
-bin  cs_course software
+AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ Documents/
+ Downloads/
+ Favorites/
+ IntelGraphicsProfiles/
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NTUSER.DAT
+ NTUSER.DAT{a2332f17-cdbf-11ec-8680-002248483d79}.TxR.0.regtrans-ms
+ NTUSER.DAT{a2332f17-cdbf-11ec-8680-002248483d79}.TxR.1.regtrans-ms
+ NTUSER.DAT{a2332f17-cdbf-11ec-8680-002248483d79}.TxR.2.regtrans-ms
+ NTUSER.DAT{a2332f17-cdbf-11ec-8680-002248483d79}.TxR.blf
+ NTUSER.DAT{a2332f18-cdbf-11ec-8680-002248483d79}.TM.blf
+ NTUSER.DAT{a2332f18-cdbf-11ec-8680-002248483d79}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{a2332f18-cdbf-11ec-8680-002248483d79}.TMContainer00000000000000000002.regtrans-ms
+ NetHood@
+ OneDrive/
+ PSAppDeployToolkit/
+ Pictures/
+ PrintHood@
+ Recent@
+'Saved Games'/
+ Searches/
+ SendTo@
+'Start Menu'@
+ Templates@
+'Ubuntu-22.04 (wsl.localhost) - Shortcut.lnk'*
+ Videos/
+ _tmp_cloudspan_aws/
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ ntuser.ini
 ```
 
 This prints the contents of your home directory, without you needing to type the full path.
@@ -643,7 +701,7 @@ Now that we know how to navigate around our directory structure, let's start wor
 Navigate to your `illumina_fastq` directory:
 
 ``` {.bash filename="Code"}
-cd ~/cs_course/data/illumina_fastq
+cd ~/Desktop/ybcmd/cs_course/data/illumina_fastq
 ```
 
 We are interested in looking at the fastq files in this directory. We can list all files with the .fastq extension using the command:
@@ -661,7 +719,8 @@ The `*` character is a special type of character called a wildcard, which can be
 This command:
 
 ``` {.bash filename="Code"}
-ls ../../ ls *_2.fastq
+ls ../../ 
+ls *_2.fastq
 ```
 
 ``` {.default filename="Output"}
@@ -673,11 +732,14 @@ lists only the file that ends with `_2.fastq`.
 This command:
 
 ``` {.bash filename="Code"}
-ls /usr/bin/*.sh
+ls ~/Desktop/ybcmd/bin/*.sh
 ```
 
 ``` {.default filename="Output"}
-/usr/bin/amuFormat.sh  /usr/bin/gettext.sh  /usr/bin/gvmap.sh
+/c/Users/jpm513/Desktop/ybcmd/bin/colours_functions.sh*
+/c/Users/jpm513/Desktop/ybcmd/bin/csguide.sh*
+/c/Users/jpm513/Desktop/ybcmd/bin/csguideeditnprint.sh*
+/c/Users/jpm513/Desktop/ybcmd/bin/textcolorsandstyles.sh*
 ```
 
 Lists every file in `/usr/bin` that ends in the characters `.sh`. Note that the output displays **full** paths to files, since each result starts with `/`.
@@ -686,10 +748,10 @@ Lists every file in `/usr/bin` that ends in the characters `.sh`. Note that the 
 
 What command would you use for each of the following tasks? Start from your current directory using a single`ls`command for each:
 
-1.  List all of the files in `/usr/bin` that start with the letter 'c'.
-2.  List all of the files in `/usr/bin` that contain the letter 'a'.
-3.  List all of the files in `/usr/bin` that end with the letter 'o'.
-4.  List all of the files in `/usr/bin` that contain the letter 'a' or the letter 'c'.
+1.  List all of the files in `/bin` that start with the letter 'c'.
+2.  List all of the files in `/bin` that contain the letter 'a'.
+3.  List all of the files in `/bin` that end with the letter 'o'.
+4.  List all of the files in `/bin` that contain the letter 'a' or the letter 'c'.
 
 Bonus: What would the output look like if a wildcard could *not* be matched? Try listing all files that start with 'missing'.
 
@@ -698,10 +760,10 @@ Hint: Question 4 requires a Unix wildcard that we haven't talked about yet. Try 
 ::: {.callout-caution collapse="true"}
 ### Solution
 
-1.  `ls /usr/bin/c*`
-2.  `ls /usr/bin/*a*`
-3.  `ls /usr/bin/*o`
-4.  `ls /usr/bin/*[ac]*`
+1.  `ls ~/Desktop/ybcmd/bin/c*`
+2.  `ls ~/Desktop/ybcmd/bin/*a*`
+3.  `ls ~/Desktop/ybcmd/bin/*o`
+4.  `ls ~/Desktop/ybcmd/bin/*[ac]*`
 
 Bonus: `ls: cannot access 'missing*': No such file or directory`
 :::
@@ -721,7 +783,9 @@ to see a numbered list of recent commands. You can reuse one of these commands d
 For example, if your history looked like this:
 
 ``` {.default filename="Output"}
-259  ls * 260  ls /usr/bin/*.sh 261  ls *R1*fastq
+259  ls * 
+260  ls ~/Desktop/ybcmd/bin/*.sh 
+261  ls *R1*fastq
 ```
 
 then you could repeat command #260 by entering:
@@ -749,7 +813,8 @@ One way to examine a file is to open the file in a read-only format and navigate
 Enter the following command from within the `illumina_fastq` directory:
 
 ``` {.bash filename="Code"}
-cd ~/cs_course/data/illumina_fastq less ERR4998593_1.fastq
+cd ~/Desktop/ybcmd/cs_course/data/illumina_fastq 
+less ERR4998593_1.fastq
 ```
 
 ### FASTQ format
@@ -845,10 +910,11 @@ When working with computational data, it's important to keep a safe copy of that
 
 First, let's make a copy of one of our FASTQ files using the `cp` command.
 
-Navigate to the `cs_course/data/illumina_fastq` directory and enter:
+Navigate to the `illumina_fastq` directory and enter:
 
 ``` {.bash filename="Code"}
-cp ERR4998593_1.fastq ERR4998593_1_copy.fastq ls -F
+cp ERR4998593_1.fastq ERR4998593_1_copy.fastq 
+ls -F
 ```
 
 ``` {.default filename="Output"}
@@ -872,7 +938,8 @@ mkdir backup
 We can now move our backup file to this directory. We can move files around using the command `mv`:
 
 ``` {.bash filename="Code"}
-mv ERR4998593_1_copy.fastq backup ls backup
+mv ERR4998593_1_copy.fastq backup 
+ls backup
 ```
 
 ``` {.default filename="Output"}
@@ -882,7 +949,9 @@ ERR4998593_1_copy.fastq
 The `mv` command is also how you rename files. Let's rename this file to make it clear that this is a backup:
 
 ``` {.bash filename="Code"}
-cd backup mv ERR4998593_1_copy.fastq ERR4998593_1_backup.fastq ls
+cd backup 
+mv ERR4998593_1_copy.fastq ERR4998593_1_backup.fastq 
+ls
 ```
 
 ``` {.default filename="Output"}
@@ -902,7 +971,8 @@ rm ERR4998593_1_backup.fastq
 By default, `rm` will not delete directories. You can tell `rm` to delete a directory using the `-r` (recursive) option. Let's delete the backup directory we just made:
 
 ``` {.bash filename="Code"}
-cd .. rm -r backup
+cd .. 
+rm -r backup
 ```
 
 This will delete not only the directory, but all files within the directory.
@@ -921,7 +991,7 @@ Starting in the `illumina_fastq` directory, do the following:
 1.  `rm -r backup`
 2.  `cp ERR4998593_1.fastq ERR4998593_1_backup.fastq` and `cp ERR4998593_2.fastq ERR4998593_2_backup.fastq`
 3.  `mkdir backup` and `mv *_backup.fastq backup`
-4.  `mv backup ..` or `mv backup ~/cs_course/data/` (note that you do not need to use the -r flag to move directories like you do when deleting them)
+4.  `mv backup ..` or `mv backup ~Desktop/ybcmd/cs_course/data/` (note that you do not need to use the -r flag to move directories like you do when deleting them)
 
 It's always a good idea to check your work. Move to the `data` folder with `cd ..` and then list the contents of `backup` with `ls -l backup`. You should see something like:
 
@@ -944,7 +1014,7 @@ The four nucleotides that appear in DNA are abbreviated `A`, `C`, `T` and `G`. U
 We'll search for strings inside of our fastq files. Let's first make sure we are in the correct directory:
 
 ``` {.bash filename="Code"}
-cd ~/cs_course/data/illumina_fastq
+cd ~Desktop/ybcmd/cs_course/data/illumina_fastq
 ```
 
 However, suppose we want to see how many reads in our file have bad segments containing three or more unclassified nucleotides (N) in a row.
@@ -958,10 +1028,10 @@ To search files we use a new command called `grep`. The name "grep" comes from a
 Let's search for the string NNN in the ERR4998593_1 file:
 
 ``` {.bash filename="Code"}
-grep NNN ERR4998593_1.fastq
+grep N ERR4998593_1.fastq
 ```
 
-This command returns quite a lot of output to the terminal. Every single line in the ERR4998593_1 file that contains at least 3 consecutive Ns is printed to the terminal, regardless of how long or short the file is.
+This command returns quite a lot of output to the terminal. Every single line in the ERR4998593_1 file that contains at least one consecutive N is printed to the terminal, regardless of how long or short the file is.
 
 We may be interested not only in the actual sequence which contains this string, but in the name (or identifier) of that sequence. Think back to the FASTQ format we discussed previously - if you need a reminder, you can click to reveal one below.
 
@@ -976,34 +1046,60 @@ To get all of the information about each read, we will return the line immediate
 We can use the `-B` argument for grep to return a specific number of lines before each match. The `-A` argument returns a specific number of lines after each matching line. Here we want the line *before* and the two lines *after* each matching line, so we add `-B1 -A2` to our grep command:
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN ERR4998593_1.fastq
+grep -B1 -A2 N ERR4998593_1.fastq
 ```
 
 One of the sets of lines returned by this command is:
 
 ``` {.default filename="Output"}
-@ERR4998593.50651366 50651366 length=151 TCCTTGCGGAGCCGGGCATGCAGGNCCTGCAGGTAGNGGCGGCGGCAGGNGCCGCCGCCGTCTACCACGGTGTANCGNNCNANNNNNCANTCATCGACGGNNGGTGNGACNNCTGCGATCTTGCGNCGCCTGGTCTNGCGGCCATCCTCTN + FFF,FFFFFFFF:,,F:F,FFFFF#,:F,FFFF:F,#,FFFFF::FF:,#FFFFFFFFF:F,FF,FFFF,F,FF#,F##:#:#####:F#FFFFFFF,FF##:FFF#F:F##FFF,FFFFFF,,,#FF:F:,FFFF#F:::F:FFF:FF,#
+@ERR4998593.3 3 length=151
+GNGGTGCTCGACGGTGGCTCGGCGGATGCGCATGGCGTCGGGCCTGCGGTCCAGCCGCTCCCGCATGGCGTCGATCACCGCCTCATGCTCCCAGCGTTTGATGCGGCGCTCCTTGCCGCTCGTACACCGGCTCTTCAGCGGGCAGCCGGCG
++
+F#FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF,FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 ```
 
 ### Exercise
 
-1.  Search for the sequence `AAAACCCCGGGGTTTT` in the `ERR4998593_1.fastq` file. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. What is the output?
+1.  Search for the sequence `AACC` in the `ERR4998593_1.fastq` file. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. What is the output?
 
-2.  Search for the sequence `AACCGGTTAACCGGTT` in both FASTQ files. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. How many matching sequences do you get? (this may take up to 4 minutes to complete so be patient!)
+2.  Search for the sequence `CCGGTT` in both FASTQ files. Have your search return all matching lines and the name (or identifier) for each sequence that contains a match. How many matching sequences do you get? (this may take up to 4 minutes to complete so be patient!)
 
 ::: {.callout-caution collapse="true"}
 ### Solution
 
-1.  `grep -B1 AAAACCCCGGGGTTTT ERR4998593_1.fastq`
+1.  `grep -B1 AACC ERR4998593_1.fastq`
 
 ``` {.default filename="Output"}
-@ERR4998593.49988640 49988640 length=151 GGTCCATGAAGCTTGTACTGCGCGCCGATATTCTCGAAGCCGAGGCCCTAGTCCGCAAAAAACAAAAACCCCGGGGTTTTGGCCCCGGGGTTTGTCGTTTGAGCGTTTGCCGCGGCGATCAGAACCGGTAGTTGACGCCGGCGCGAACGAT -- @ERR4998593.16888007 16888007 length=151 GCCGAGGCCCTAGTCCGCAAAAAACAAAAACCCCGGGGTTTTGGCCCCGGGGTTTGTCGTTTTAGCGTTTGCCGCGGCGATCAGAACCGGTAGTTGACGCCGGCGCGAACGATGTTGGTGGTGAACGACACGTTGTCGGTCACGAACGGTC -- @ERR4998593.39668571 39668571 length=151 CCCCGGGGCCAAAACCCCGGGGTTTTTGTTTTTTGCGGACTAGGCCTCGGCTTCGAGAATATCGGCGCGCAGTCCAAGCTTCATGGACCTGTCGTGACCCAAGATGGCGGATCAGGCGGGAGACTCAGGTTTTCCCGAAAGGTCTTTATGC
+@ERR4998593.40838091 40838091 length=151
+CCACATGCTTTAAGTGCATGTGGTACTGCTCCAGGACCAGCATTGTAGGTCGCCAATGCTTTGGCGTAGGTGCCATCAAACATATTCGTGTAATGAGCCATGAGATGGGCTGCTCCCTTCAATGCATCAACCGGATTCCACGGATCAATGC
+--
+@ERR4998593.34862640 34862640 length=151
+CAGGCAGATTGCCGCCCGACACTTTCTTGGTCGGCGAAGAGTCGTCATTGCCAAGCCAGACTCCGGCGACCAGATAGCTCGTGTAGCCGAGGAACCAGGCGTCGCGCCAATCCTGGCTGGTCCCCGTTTTGCCCGCGGCCTGCCACCCCGG
+--
+@ERR4998593.63611176 63611176 length=151
+GTTGTGGCCACTCGGGCGGGAAAACGTGTCGGTCGAGGAGGCTAACGAGATGGGTTATTCGGGCCTCGGCGTCCCGTCGTAGTCGCCGCCGCGAGCTAACCTACCGCGCCATGCCTGGGATGGGTGCTCGCCGCGCCCGGTCGGCCGGGAT
+--
+@ERR4998593.47948452 47948452 length=151
+GTCCAGAGACAAACGACATCTGCTACGCGACGCAAAATCGACAGATGGCAGTACGTGAGCTAACCAAGATTGCCGATGTGATATTAGTTGTTGGGGCCAAAAACAGCTCGAATTCCAATCGGCTAAGAGAGATCGGCGAAGAGGCTGGCGT
+--
+@ERR4998593.44850488 44850488 length=151
+TCTGATCTGCGGCTGGGCCATCACCTCCAAGGACGGCACCCCGATGAAGATGGGCGCATGGCCGGCCATGGCGCCGGAGACGGTGCGCTTCGTCGGCCAGGCGGTCGCGGTGGTGATCGCCGAGACCAAGAACCAGGCCAAGGACGCGGCC
+--
+@ERR4998593.67878655 67878655 length=151
+CTCGTCGTCGGCGAGACATTCGCAGCGCGGATGACCGCCTACGACATCGCCGGCGACGGCGGCCTCTCGAACCGCCGCGTCTGGGCGGCGCTGCCGCAGGGCGCGGTGCCGGACGGCTGCTGCCTCGACGCCGAGGGCGCCATATGGGTGG
 ```
 
-2.  `grep -B1 AACCGGTTAACCGGTT *.fastq`
+2.  `grep -B1 CCGGTT *.fastq`
 
 ``` {.default filename="Output"}
-ERR4998593_1.fastq-@ERR4998593.64616570 64616570 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_1.fastq-@ERR4998593.64617528 64617528 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_1.fastq-@ERR4998593.52741374 52741374 length=151 ERR4998593_1.fastq:GACAAGCTCATCTTCCAAAATCCGCAACGGTTTTTAAGCCAGTGCCCGAAATTTAGATTAACCGATTAACCGGTTAACCGGTTCGTAGGAGACGGGTAACGAGACTCTAACTCAAGTTTCGCATACTACCACCAAAACAGCCCGTCCGCGT -- ERR4998593_2.fastq-@ERR4998593.2096117 2096117 length=151 ERR4998593_2.fastq:ATTGGCTGGCGGCAGTCGCGTTGGCGGCTTGGCGGTTAACCGGTTAACCGGTTGACTAATGGGAGGATAACACTTCGCGACAGGAACGCAACACAATTCCGGATCAATAGGGCAACTGCCCTGGGATGGTTTTTGAGGTGGACACGGACCA -- ERR4998593_2.fastq-@ERR4998593.11478972 11478972 length=151 ERR4998593_2.fastq:GAACAGGGCTGTTAGTTAACCGGTCAAAGCCGCCTTAACCGGTTAACCGGTTGTAACGCCCCGCTATGCTCGTTGTGTCCGCTATCTCTGTGATTGTGTTTGTTTCGGTGTTTGCTTCGGTTTGCCGTTTGTCTATGCCGAGAAGTGGAGG
+ERR4998593_2.fastq-@ERR4998593.34862640 34862640 length=151
+ERR4998593_2.fastq:CATCCGACCTTGATCCGGTTCCGTCGATCGCGCTTGGCTCCTCAGACGTGACGCCTCTGGAGATGGTATCGGCCTATGCGGCTTTCGCCAACGGCGGCCTGGGCGTCCAACCGCATGTGATCGCACGCGTGCGCACGGCGAACGGCAAGCA
+--
+ERR4998593_2.fastq-@ERR4998593.47948452 47948452 length=151
+ERR4998593_2.fastq:CCTTCAGCTTTTGCTTGATGAGATAGGACCCGATCCGTCTTTCCTTGAAAAACGGCAATGCCATCGCTGTACTCCGGTTTGTAAAGATATCGCGCTGCGACGCGTGGTGATTTGGTTTCGGCGTTATCTGAGAGGAGTTAGATCTTAGAGC
+--
+ERR4998593_2.fastq-@ERR4998593.67878655 67878655 length=151
+ERR4998593_2.fastq:CGGCAACCCCGCCCCAGGCACATCCACCTGCACCGCCTCGATGCGTCCGGTTCGGCTCGCGCGGCACTCTGCCGGGTCGGAGCTGGCGGCGGTGAGCAGGTAGAGGGTCCGGCGGTCGGCGCCGCCCAGCATGCAGGCATATACGCCCTGG
 ```
 :::
 
@@ -1020,7 +1116,7 @@ The command for redirecting output to a file is `>`.
 Let's try out this command and copy all the records (including all four lines of each record) in our FASTQ files that contain 'NNN' to another file called `bad_reads.txt`. The new flag `--no-group-separator` stops grep from putting a dashed line (--) between matches. The reason this is necessary will become apparent shortly.
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq > bad_reads.txt
+grep -B1 -A2 N --no-group-separator ERR4998593_1.fastq > bad_reads.txt
 ```
 
 The prompt should sit there a little bit, and then it should look like nothing happened. But type `ls`. You should see a new file called `bad_reads.txt`.
@@ -1046,7 +1142,7 @@ wc bad_reads.txt
 ```
 
 ``` {.default filename="Output"}
-  52   78 4511 bad_reads.txt
+20   78 4511 bad_reads.txt
 ```
 
 This will tell us the number of lines, words and characters in the file. If we want only the number of lines, we can use the `-l` flag for `lines`.
@@ -1056,7 +1152,7 @@ wc -l bad_reads.txt
 ```
 
 ``` {.default filename="Output"}
-52 bad_reads.txt
+20 bad_reads.txt
 ```
 
 The `--no-group-separator` flag used above prevents grep from adding unnecessary extra lines to the file which would alter the number of lines present.
@@ -1076,19 +1172,20 @@ wc -l ERR4998593_1.fastq
 ```
 
 ``` {.default filename="Output"}
-137054440 ERR4998593_1.fastq
+64 ERR4998593_1.fastq
 ```
 
-Now you can divide this number by four to get the number of sequences in your fastq file (34263610).
+Now you can divide this number by four to get the number of sequences in your fastq file (16).
 
 2.  
 
 ``` {.bash filename="Code"}
-grep NNNNN ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
+grep NNNNN ERR4998593_1.fastq > bad_reads.txt 
+wc -l bad_reads.txt
 ```
 
 ``` {.default filename="Output"}
-3 bad_reads.txt
+0 bad_reads.txt
 ```
 :::
 
@@ -1097,11 +1194,11 @@ grep NNNNN ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
 We might want to search multiple FASTQ files for sequences that match our search pattern. However, we need to be careful, because each time we use the `>` command to redirect output to a file, the new output will replace the output that was already present in the file. This is called "overwriting" and, just like you don't want to overwrite your video recording of your kid's first birthday party, you also want to avoid overwriting your data files.
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
+grep -B1 -A2 N --no-group-separator ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
 ```
 
 ``` {.default filename="Output"}
-52 bad_reads.txt
+20 bad_reads.txt
 ```
 
 ``` {.bash filename="Code"}
@@ -1119,11 +1216,11 @@ Here, the output of our second call to `wc` shows that we no longer have any lin
 We can avoid overwriting our files by using the command `>>`. `>>` is known as the "append redirect" and will append new output to the end of a file, rather than overwriting it.
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
+grep -B1 -A2 N --no-group-separator ERR4998593_1.fastq > bad_reads.txt wc -l bad_reads.txt
 ```
 
 ``` {.default filename="Output"}
-52 bad_reads.txt
+20 bad_reads.txt
 ```
 
 ``` {.bash filename="Code"}
@@ -1147,7 +1244,7 @@ This is probably not a key on your keyboard you use very much, so let's all take
 What `|` does is take the output that is scrolling by on the terminal and uses that output as input to another command. When our output was scrolling by, we might have wished we could slow it down and look at it, like we can with `less`. Well it turns out that we can! We can redirect our output from our `grep` call through the `less` command.
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN ERR4998593_1.fastq | less
+grep -B1 -A2 N ERR4998593_1.fastq | less
 ```
 
 We can now see the output from our `grep` call within the `less` interface. We can use the up and down arrows to scroll through the output and use `q` to exit `less`.
@@ -1155,11 +1252,11 @@ We can now see the output from our `grep` call within the `less` interface. We c
 If we don't want to create a file before counting lines of output from our `grep` search, we could directly pipe the output of the grep search to the command `wc -l`. This can be helpful for investigating your output if you are not sure you would like to save it to a file.
 
 ``` {.bash filename="Code"}
-grep -B1 -A2 NNN --no-group-separator ERR4998593_1.fastq | wc -l
+grep -B1 -A2 N --no-group-separator ERR4998593_1.fastq | wc -l
 ```
 
 ``` {.default filename="Output"}
-52
+20
 ```
 
 ### Custom `grep` control

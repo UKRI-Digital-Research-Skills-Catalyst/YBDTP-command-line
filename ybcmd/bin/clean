@@ -1,0 +1,14 @@
+rm *~
+rm *.aux        
+rm *.bbl
+rm *.blg
+rm *.dvi
+rm *.lof
+rm *.log
+rm *.lot
+rm *.out
+rm *.toc
+rm *.nav
+rm *.vrb
+rm *.snm
+rm *.spl

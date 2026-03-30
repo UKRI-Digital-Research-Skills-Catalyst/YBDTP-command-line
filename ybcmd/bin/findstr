@@ -1,0 +1,22 @@
+# findstr: find a string in the specified files in the specified directories.
+# syntax:
+#	findstr string files dirs
+#
+
+case $# in
+0) 	echo "finds string in files in dirs           # NO CASE SENSITIVE";  # not enough args
+	echo "usage: findstr string [file/s][dir/s]   # double quote files and dirs if they contain wild chars"; 
+	exit 2;;
+1) 	s=$1; f="*"; d=".";;	# 1 args: search in all files in current directory
+2)	s=$1; f=$2;  d=".";;	# 2 args: search in files specified in current directory
+*)	s=$1; f=$2;  d=$3;;	# 3 args: search in files specified in directory specified
+esac
+
+for file in `find $d -name "$f" -print`
+do 
+        grep --color=auto -i -e "$s" $file 
+        if  [ $? = 0 ]
+        then
+                echo "-----> found in $file"
+        fi
+done

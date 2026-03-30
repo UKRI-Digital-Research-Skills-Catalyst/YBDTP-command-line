@@ -1,0 +1,21 @@
+# lssr: list files whose names contain string specified in $1 (string below)
+#
+# NB no spaces in assiging string to a variable
+#
+usemsg="lssr: lists file names containing \"string\" - ignores case, seeks dirs down (lss seeks curr dir only)";
+argsmsg="usage: lssr string [directory]"; 
+
+case $# in
+1)	####### was: ls --color=auto | grep --color=auto -i -e $1 ; # looks in all directories
+	####### -L follows symbolic links
+	find -L -iname "*$1*" -print | grep --color=auto -i -e $1 ;
+	exit 0;;
+
+2)	####### $2 dir to seek
+	find -L $2 -iname "*$1*" -print | grep --color=auto -i -e $1 ;
+	exit 0;;
+
+*) 	echo $usemsg;
+	echo $argsmsg;
+	exit 2;; 
+esac
