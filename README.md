@@ -1,5 +1,6 @@
 # Introduction to the Command Line
 
+[![DOI](https://zenodo.org/badge/1187061880.svg)](https://doi.org/10.5281/zenodo.20526865)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Training materials for a workshop introducing the Unix/Linux command line for research computing. Developed as part of the UKRI Digital Research Skills Catalyst (funded by UKRI/ST/B000299/1).
