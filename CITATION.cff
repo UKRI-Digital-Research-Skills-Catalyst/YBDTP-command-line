@@ -1,65 +1,52 @@
 # This CITATION.cff file was generated with cffinit.
-
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
 title: >-
-Introduction to the Command Line. A UKRI Digital Research
-Skills Catalyst workshop (Funded by UKRI/ST/B000299/1)
+  Introduction to the Command Line. A UKRI Digital Research
+  Skills Catalyst workshop (Funded by UKRI/ST/B000299/1)
 message: >-
-If you use or reuse this training material, please cite
-it! Thank you
-type: Training materials
+  If you use or reuse this training material, please cite
+  it! Thank you
+type: Training material
 authors:
-
-* given-names: Pasky
-  family-names: Miranda
-  email: [pasky.miranda@york.ac.uk](mailto:pasky.miranda@york.ac.uk)
-  affiliation: University of York
-  orcid: 'https://orcid.org/0000-0001-5337-6325'
-  identifiers:
-* type: doi
-  value: 10.5281/zenodo.xxxxxxxx
-  description: >-
-  UKRI-Digital-Research-Skills-Catalyst/YBDTP-command-line:
-  v0.1.0-alpha
-  https://ukri-digital-research-skills-catalyst.github.io/YBDTP-command-line/
-  repository-code: >-
+  - given-names: Pasky
+    family-names: Miranda
+    email: pasky.miranda@york.ac.uk
+    affiliation: University of York
+    orcid: 'https://orcid.org/0000-0001-5337-6325'
+repository-code: >-
   https://github.com/UKRI-Digital-Research-Skills-Catalyst/YBDTP-command-line
-  url: >-
+url: >-
   https://ukri-digital-research-skills-catalyst.github.io/YBDTP-command-line/
-  repository: 'https://zenodo.org/records/xxxxxxxx'
-  abstract: >-
+abstract: >
   Materials for a hands-on workshop introducing researchers
   to the Unix/Linux command line. The workshop develops
   foundational skills for working with research computing
   environments, including high-performance computing (HPC)
   systems, cloud platforms, and data-intensive workflows.
 
-Participants learn how to navigate file systems, create
-and manage files and directories, work efficiently with
-the shell, use command-line tools to inspect and process
-data, and automate repetitive tasks through shell
-scripting.
+  Participants learn how to navigate file systems, create
+  and manage files and directories, work efficiently with
+  the shell, use command-line tools to inspect and process
+  data, and automate repetitive tasks through shell
+  scripting.
 
-No prior command-line experience is assumed. By the end
-of the workshop, participants will be able to use the
-command line confidently for common research computing
-tasks and will understand how command-line skills support
-reproducible, scalable, and efficient research workflows.
+  No prior command-line experience is assumed. By the end of
+  the workshop, participants will be able to use the command
+  line confidently for common research computing tasks and
+  will understand how command-line skills support
+  reproducible, scalable, and efficient research workflows.
 keywords:
-
-* command line
-* Unix
-* Linux
-* shell
-* Bash
-* research computing
-* HPC
-* reproducibility
-* data analysis
-* scripting
-  license: CC-BY-NC-SA-4.0
-  commit: xxxxxxx
-  version: v0.1.0-alpha
-  date-released: '2026-03-30'
+  - command line
+  - Unix
+  - Linux
+  - shell
+  - Bash
+  - research computing
+  - reproducibility
+  - data analysis
+  - scripting
+license: CC-BY-NC-SA-4.0
+version: v0.1.0-alpha
+date-released: '2026-03-30'
